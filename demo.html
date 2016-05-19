@@ -10,16 +10,6 @@
         <!-- Import custom element. Note: see comment about relative paths to dependencies in the *.html file referenced below -->
         <link rel="import" href="px-datetime-field.html"/>
         <link rel="import" href="../px-theme/px-theme.html"/>
-        <link rel="import" href="../iron-demo-helpers/demo-snippet.html" />
-
-        <style is="custom-style">
-
-          --demo-snippet-code: {
-              color:blue;
-              background-color: red;
-            }
-
-        </style>
     </head>
 
     <body>
@@ -32,19 +22,7 @@
 
         <div>
           <h4>Show time zone abbreviated</h4>
-          <div>
-            <demo-snippet>
-              <template>
-
-                <px-datetime-field show-time-zone="abbreviatedText"></px-datetime-field>
-              </template>
-            </demo-snippet>
-          </div>
-          <demo-snippet>
-            <template>
-              <button>test</button>
-            </template>
-          </demo-snippet>
+          <px-datetime-field show-time-zone="abbreviatedText"></px-datetime-field>
         </div>
         <br>
         <div>
