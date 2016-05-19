@@ -8,8 +8,18 @@
         <!-- Requires Webcomponents.js polyfill is provided by the page for browsers that don't support html imports -->
         <script src="../webcomponentsjs/webcomponents-lite.min.js"></script>
         <!-- Import custom element. Note: see comment about relative paths to dependencies in the *.html file referenced below -->
-        <link rel="import" href="px-datetime-input.html"/>
+        <link rel="import" href="px-datetime-field.html"/>
         <link rel="import" href="../px-theme/px-theme.html"/>
+        <link rel="import" href="../iron-demo-helpers/demo-snippet.html" />
+
+        <style is="custom-style">
+
+          --demo-snippet-code: {
+              color:blue;
+              background-color: red;
+            }
+
+        </style>
     </head>
 
     <body>
@@ -17,19 +27,44 @@
         <h3>Demo</h3>
 
         <p>
-            Although related, examples are /not/ the same as the test fixtures.
-            Tests are tests, examples are examples.
-        </p>
-
-        <p>
             Also see the <a href="index.html">documentation</a> and the <a href="test/fixture.html">UI test fixture</a>.
         </p>
 
-        <p>
-            Click on the counter to make it increment:
-        </p>
+        <div>
+          <h4>Show time zone abbreviated</h4>
+          <div>
+            <demo-snippet>
+              <template>
 
-        <!-- instance 1, "predix" theme -->
-        <px-datetime-input counter-value="1">&hearts;</px-datetime-input>
+                <px-datetime-field show-time-zone="abbreviatedText"></px-datetime-field>
+              </template>
+            </demo-snippet>
+          </div>
+          <demo-snippet>
+            <template>
+              <button>test</button>
+            </template>
+          </demo-snippet>
+        </div>
+        <br>
+        <div>
+          <div>Just show date</div>
+          <px-datetime-field></px-datetime-field>
+        </div>
+        <br>
+        <div>
+          <div>Show time and abbreviated time zone</div>
+          <px-datetime-field show-time show-time-zone="abbreviatedText"></px-datetime-field>
+        </div>
+        <br>
+        <div>
+          <div>Show time</div>
+          <px-datetime-field show-time></px-datetime-field>
+        </div>
+        <br>
+        <div>
+          <div>UTC</div>
+          <px-datetime-field time-zone="UTC" show-time-zone="abbreviatedText"></px-datetime-field>
+        </div>
     </body>
 </html>

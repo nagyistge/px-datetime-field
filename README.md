@@ -1,11 +1,11 @@
-#THIS COMPONENT IS NOT YET RELEASED. 
+#THIS COMPONENT IS NOT YET RELEASED.
 
-Px-Datetime-Input
+Px-Datetime-field
 -----------------------------------------------
 
 ## Overview
 
-Px-Datetime-Input is a Predix Experience ('Px') component
+Px-Datetime-field is a Predix Experience ('Px') component
 
 ## Getting Started
 

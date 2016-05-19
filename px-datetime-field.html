@@ -5,36 +5,53 @@
     'grunt depserve' (or similar server setup) to enable correct finding of bower dependencies for local runs.
 -->
 <link rel="import" href="../polymer/polymer.html"/>
+<link rel="import" href="../px-datetime-common/px-datetime-imports.html"/>
+<link rel="import" href="../px-datetime-common/px-datetime-entry.html"/>
 
 
 <!--
-Element providing solution to no problem in particular. As a simple, increments a counter when clicked.
 
 ##### Usage
 
-    <px-datetime-input counter-value="1">Hi</px-datetime-input>
+    <px-datetime-field></px-datetime-field>
 
-@element px-datetime-input
+@element px-datetime-field
 @blurb Element providing solution to no problem in particular.
 @homepage index.html
 @demo demo.html
 -->
-<dom-module id="px-datetime-input">
-    <link rel="import" type="css" href="css/px-datetime-input.css"/>
+<dom-module id="px-datetime-field">
+    <link rel="import" type="css" href="css/px-datetime-field.css"/>
     <template>
-        <div class="circle counter" on-click="handleClick">
-            <span>{{counterValue}}</span>
-            <content></content>
-        </div>
+      <div class$="{{_getWrapperClass(dateIsValid, timeIsValid, isSelected)}}">
+        <px-datetime-entry
+          date-or-time="Date"
+          moment-format="{{momentDateFormat}}"
+          moment-obj="{{momentObj}}"
+          is-valid="{{dateIsValid}}"
+          is-selected="{{isSelected}}"
+          time-zone="{{timeZone}}"
+          show-time-zone="{{_showTimeZoneInDate(showTime, showTimeZone)}}">
+        </px-datetime-entry>
+        <template is="dom-if" if="{{showTime}}">
+          <px-datetime-entry
+            date-or-time="Time"
+            moment-format="{{momentTimeFormat}}"
+            show-time-zone="{{showTimeZone}}"
+            moment-obj="{{momentObj}}"
+            is-valid="{{timeIsValid}}"
+            time-zone="{{timeZone}}"
+            is-selected="{{isSelected}}">
+          </px-datetime-entry>
+        </template>
+      </div>
     </template>
 </dom-module>
 
 <script>
     Polymer({
 
-        is: 'px-datetime-input',
-
-        
+        is: 'px-datetime-field',
 
         /**
          * Properties block, expose attribute values to the DOM via 'reflect'
@@ -43,29 +60,108 @@ Element providing solution to no problem in particular. As a simple, increments 
          * @type Object
          */
         properties: {
-            counterValue: {
-                type: Number,
-                reflect: true
+            /**
+             * Moment format used for the date
+             *
+             */
+            momentDateFormat: {
+                type: String,
+                value: 'MM/DD/YYYY'
+            },
+            /**
+             * Moment format used for the time
+             *
+             */
+            momentTimeFormat: {
+                type: String,
+                value: 'HH:mm A'
+            },
+            /**
+             *
+             * Can be set to show the timezone. Can have 2 values:
+             *  'dropdown': shows the time zone as a dropdown which the user can use to
+             * select a different time zone. Only contains a subset of all timezones
+             *  'extendedDropdown': shows the time zone as a dropdown which the user can use to
+             * select a different time zone. Contains all existing timezones (588)
+             *  'text': shows the time zone as text, non editable
+             *  'abbreviatedText': shows the time zone as an abbreviated text, non editable (such as PST, EST...)
+             */
+            showTimeZone: {
+              type: String,
+              value: ''
+            },
+            /**
+             * Moment object representing the time shown by this field
+             *
+             */
+            momentObj: {
+              type: Object,
+              value: function() {
+                return moment();
+              }
+            },
+            /**
+             *  Whether the date shown is valid.
+             *
+             */
+            dateIsValid: {
+              type: Boolean,
+              notify: true
+            },
+            /**
+             *  Whether the time shown is valid.
+             *
+             */
+            timeIsValid: {
+              type: Boolean,
+              value: true,
+              notify: true
+            },
+            /**
+             *  True if any cell is currently selected.
+             *
+             */
+            isSelected: {
+              type: Boolean,
+              notify: true
+            },
+            /**
+             * Controls whether time is displayed in this field
+             */
+            showTime: {
+              type: Boolean,
+              value: false
+            },
+            /**
+             * Moment-timezone string for using a specific timezone. See
+             * http://momentjs.com/timezone/docs/#/data-loading/getting-zone-names/
+             *
+             * if not provided tries to guess the current local
+             */
+            timeZone: {
+              type: String
             }
         },
 
-        /**
-         * Handles click on the element defined in 'on-click' on the template
-         *
-         * @method handleClick
-         */
-        handleClick: function(event, detail, sender) {
-            this.increment();
+        _getWrapperClass: function(dateIsValid, timeIsValid, isSelected) {
+
+          var classList = "wrapper inline--flex ";
+
+          if(dateIsValid !== true || timeIsValid !== true) {
+            classList += "validation-failed ";
+          } else if(isSelected) {
+            classList += "selected "
+          }
+
+          return classList;
         },
 
-        /**
-         * Increments the counter
-         *
-         * @method increment
-         */
-        increment: function () {
-            this.counterValue++;
+        _showTimeZoneInDate: function(showTime, showTimeZone) {
+          if(!showTime || showTime === false) {
+            return showTimeZone;
+          }else {
+            return ''
+          }
         }
-
     });
 </script>

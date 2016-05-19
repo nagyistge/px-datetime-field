@@ -9,6 +9,60 @@
  * under which the software has been supplied.
  */
 /*
+THIS FILE SHOULD CONTAIN ONLY RULES SPECIFIC TO PREDIX BRANDING
+common/abstract rules go in px-datetime-input-sketch.scss, not in this file.
+*/
+/*------------------------------------*    #PX-COLORS-DESIGN
+\*------------------------------------*/
+/**
+ * Brand Colors
+ */
+/**
+     * Primary
+     */
+/**
+     * Light
+     */
+/**
+     * Dark
+     */
+/**
+ * Monochromatic (gray10 is darkest, gray1 is lightest)
+ */
+/**
+ * Define grey = gray to avoid dev typos
+ */
+/**
+ * Buttons
+ */
+/**
+ * Selection
+ */
+/**
+ * Alerts
+ */
+/**
+ * Data Visualization
+ */
+/**
+     * Basic
+     */
+/**
+     * Light
+     */
+/**
+     * Dark
+     */
+/*
+ * Copyright (c) 2014 GE Global Research. All rights reserved.
+ *
+ * The copyright to the computer software herein is the property of
+ * GE Global Research. The software may be used and/or copied only
+ * with the written permission of GE Global Research or in accordance
+ * with the terms and conditions stipulated in the agreement/contract
+ * under which the software has been supplied.
+ */
+/*
 THIS FILE SHOULD CONTAIN ONLY ABSTRACT/'SKETCH' THEME RULES, NOT SPECIFIC TO PREDIX BRANDING
 Predix branding rules go in px-datetime-input-predix.scss, not in this file.
 */
@@ -195,47 +249,6 @@ html {
  * A lot of these classes carry `!important` as you will always want them to win
  * out over other selectors.
  */
-/*------------------------------------*    #PX-COLORS-DESIGN
-\*------------------------------------*/
-/**
- * Brand Colors
- */
-/**
-     * Primary
-     */
-/**
-     * Light
-     */
-/**
-     * Dark
-     */
-/**
- * Monochromatic (gray10 is darkest, gray1 is lightest)
- */
-/**
- * Define grey = gray to avoid dev typos
- */
-/**
- * Buttons
- */
-/**
- * Selection
- */
-/**
- * Alerts
- */
-/**
- * Data Visualization
- */
-/**
-     * Basic
-     */
-/**
-     * Light
-     */
-/**
-     * Dark
-     */
 /* Links
    ========================================================================== */
 /**
@@ -430,6 +443,11 @@ a {
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex; }
+
+.inline--flex {
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex; }
 
 .flex--row {
   -webkit-flex-direction: row;
@@ -745,24 +763,11 @@ textarea {
   line-height: inherit;
   color: #7c7c84; }
 
-.circle {
-  cursor: pointer;
-  -webkit-user-select: none;
-     -moz-user-select: none;
-      -ms-user-select: none;
-          user-select: none;
-  box-sizing: content-box;
-  /* Even though we use shadow DOM in this component, Safari insists on bleeding styles through from outside, so reset the resetting of this */
-  border: 1px black dashed;
-  font-size: 2rem;
-  text-align: center;
-  padding: 1.25rem .4rem .4rem .4rem;
-  border-radius: 50%; }
+.wrapper {
+  border: solid 1px #d1d0d8; }
 
-.counter {
-  display: inline-block;
-  min-width: 6.5rem;
-  height: 3rem; }
+.selected {
+  border: solid 1px #3e87e8; }
 
 /*------------------------------------*    #CLEARFIX
 \*------------------------------------*/
@@ -1275,3 +1280,11 @@ textarea {
     -webkit-flex: none !important;
         -ms-flex: none !important;
             flex: none !important; } }
+
+.validation-failed {
+  border: solid 1px #e53838; }
+  .validation-failed:active {
+    border: solid 1px #e53838; }
+
+.wrapper {
+  background-color: #efeff4; }

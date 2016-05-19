@@ -23,8 +23,8 @@ module.exports = function (grunt) {
             },
             dist: {
                 files: {
-                    'css/noprefix/px-datetime-input-sketch.css': 'sass/px-datetime-input-sketch.scss',
-                    'css/noprefix/px-datetime-input.css': 'sass/px-datetime-input-predix.scss'
+                    'css/noprefix/px-datetime-field-sketch.css': 'sass/px-datetime-field-sketch.scss',
+                    'css/noprefix/px-datetime-field.css': 'sass/px-datetime-field-predix.scss'
                 }
             }
         },
