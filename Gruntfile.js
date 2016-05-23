@@ -67,14 +67,14 @@ module.exports = function (grunt) {
                 tasks: ['sass', 'autoprefixer'],
                 options: {
                     interrupt: true,
-                    livereload: true
+                    livereload: false
                 }
             },
             htmljs: {
                 files: ['*.html', '*.js'],
                 options: {
                     interrupt: true,
-                    livereload: true
+                    livereload: false
                 }
             }
         },
@@ -108,7 +108,6 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-contrib-jshint');
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-dep-serve');
-    grunt.loadNpmTasks('webdriver-support');
     grunt.loadNpmTasks('grunt-autoprefixer');
     grunt.loadNpmTasks('grunt-concurrent');
 
