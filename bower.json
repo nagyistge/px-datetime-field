@@ -1,6 +1,6 @@
 {
     "name": "px-datetime-field",
-    "version": "0.1.0",
+    "version": "0.1.1",
     "main": [
         "px-datetime-field.html"
     ],
@@ -16,7 +16,7 @@
     "dependencies": {
         "polymer": "~1.4.0",
         "px-theme": "https://github.com/PredixDev/px-theme.git#~0.7.0",
-        "px-datetime-common": "~0.1.0"
+        "px-datetime-common": "~0.2.0"
     },
     "devDependencies": {
         "iron-component-page" : "PolymerElements/iron-component-page#~v1.1.0",

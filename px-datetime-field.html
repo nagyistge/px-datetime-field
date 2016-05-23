@@ -7,6 +7,7 @@
 <link rel="import" href="../polymer/polymer.html"/>
 <link rel="import" href="../px-datetime-common/px-datetime-imports.html"/>
 <link rel="import" href="../px-datetime-common/px-datetime-entry.html"/>
+<link rel="import" href="../px-datetime-common/px-datetime-behavior.html"/>
 
 
 <!--
@@ -53,6 +54,7 @@
 
         is: 'px-datetime-field',
 
+        behaviors: [pxDatetimeBehavior],
         /**
          * Properties block, expose attribute values to the DOM via 'reflect'
          *
@@ -91,16 +93,6 @@
               value: ''
             },
             /**
-             * Moment object representing the time shown by this field
-             *
-             */
-            momentObj: {
-              type: Object,
-              value: function() {
-                return moment();
-              }
-            },
-            /**
              *  Whether the date shown is valid.
              *
              */
@@ -131,15 +123,6 @@
             showTime: {
               type: Boolean,
               value: false
-            },
-            /**
-             * Moment-timezone string for using a specific timezone. See
-             * http://momentjs.com/timezone/docs/#/data-loading/getting-zone-names/
-             *
-             * if not provided tries to guess the current local
-             */
-            timeZone: {
-              type: String
             }
         },
 
