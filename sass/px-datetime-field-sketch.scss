@@ -32,15 +32,22 @@ Predix branding rules go in px-datetime-input-predix.scss, not in this file.
 
 @import "px-forms-design/_base.forms.scss";
 
-.wrapper {
-  border: solid 1px $gray4;
-
+.text-field{
+  margin: 0;
+  border: $inuit-forms-border--outer;
+  font: inherit;
+  outline: 0;
+  // width: 100%;
+  padding: $inuit-base-spacing-unit--tiny;
+  // padding-top: $inuit-base-spacing-unit--tiny + calculateRem(2px);
+  box-shadow: $inuit-forms-border--inner;
+  background-color: $inuit-forms-background;
+  color: $inuit-forms-color;
 }
-
-.selected {
-  border: solid 1px $primary-blue;
+.is-selected {
+  border-color: $inuit-forms-border--outer--focused;
+  box-shadow: $inuit-forms-border--inner--focused;
 }
-
 
 // Trumps
 @import "inuit-clearfix/_trumps.clearfix.scss";

@@ -26,6 +26,7 @@
   <template>
     <div class$="{{_getWrapperClass(dateIsValid, timeIsValid, isSelected)}}">
       <px-datetime-entry
+        class$="{{_getEntryClass(inlineEdit)}}"
         date-or-time="Date"
         moment-format="{{dateFormat}}"
         moment-obj="{{momentObj}}"
@@ -37,6 +38,7 @@
       </px-datetime-entry>
       <template is="dom-if" if="{{showTime}}">
         <px-datetime-entry
+          class$="{{_getEntryClass(inlineEdit)}}"
           date-or-time="Time"
           moment-format="{{timeFormat}}"
           show-time-zone="{{showTimeZone}}"
@@ -94,6 +96,13 @@
         value: ''
       },
       /**
+       * Controls whether time is displayed in this field
+       */
+      showTime: {
+        type: Boolean,
+        value: false
+      },
+      /**
        *  Whether the date shown is valid.
        *
        */
@@ -119,21 +128,34 @@
         notify: true
       },
       /**
-       * Controls whether time is displayed in this field
+       * Whether the field is editable inline or always an editable text field
+       * True - field is inline editable
+       * False - field is always an editable text field
        */
-      showTime: {
+      inlineEdit: {
         type: Boolean,
         value: false
       }
     },
 
     _getWrapperClass: function(dateIsValid, timeIsValid, isSelected) {
-      var classList = "wrapper inline--flex ";
+      var classList = "wrapper inline--flex text-field ";
 
       if(dateIsValid !== true || timeIsValid !== true) {
         classList += "validation-failed ";
       } else if(isSelected) {
-        classList += "selected "
+        classList += "is-selected "
+        //find a way to trigger selected on the input field
+      }
+
+      return classList;
+    },
+
+    _getEntryClass: function(inlineEdit) {
+      var classList = "flex ";
+
+      if(inlineEdit === true) {
+        classList += "text-field ";
       }
 
       return classList;
