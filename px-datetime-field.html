@@ -27,7 +27,7 @@
     <div class$="{{_getWrapperClass(dateIsValid, timeIsValid, isSelected)}}">
       <px-datetime-entry
         date-or-time="Date"
-        moment-format="{{momentDateFormat}}"
+        moment-format="{{dateFormat}}"
         moment-obj="{{momentObj}}"
         is-valid="{{dateIsValid}}"
         is-selected="{{isSelected}}"
@@ -38,7 +38,7 @@
       <template is="dom-if" if="{{showTime}}">
         <px-datetime-entry
           date-or-time="Time"
-          moment-format="{{momentTimeFormat}}"
+          moment-format="{{timeFormat}}"
           show-time-zone="{{showTimeZone}}"
           moment-obj="{{momentObj}}"
           is-valid="{{timeIsValid}}"
@@ -67,7 +67,7 @@
        * Moment format used for the date
        *
        */
-      momentDateFormat: {
+      dateFormat: {
           type: String,
           value: 'MM/DD/YYYY'
       },
@@ -75,7 +75,7 @@
        * Moment format used for the time
        *
        */
-      momentTimeFormat: {
+      timeFormat: {
           type: String,
           value: 'HH:mm A'
       },
