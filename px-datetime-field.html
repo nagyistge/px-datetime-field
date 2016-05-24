@@ -33,7 +33,8 @@
         is-valid="{{dateIsValid}}"
         is-selected="{{isSelected}}"
         time-zone="{{timeZone}}"
-        show-time-zone="{{_showTimeZoneInDate(showTime, showTimeZone)}}">
+        show-time-zone="{{_showTimeZoneInDate(showTime, showTimeZone)}}"
+        block-future-dates="{{blockFutureDates}}">
       </px-datetime-entry>
       <template is="dom-if" if="{{showTime}}">
         <px-datetime-entry
@@ -44,7 +45,8 @@
           moment-obj="{{momentObj}}"
           is-valid="{{timeIsValid}}"
           time-zone="{{timeZone}}"
-          is-selected="{{isSelected}}">
+          is-selected="{{isSelected}}"
+          block-future-dates="{{blockFutureDates}}">
         </px-datetime-entry>
       </template>
     </div>
