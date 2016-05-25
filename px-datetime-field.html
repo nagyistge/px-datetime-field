@@ -25,17 +25,20 @@
   <link rel="import" type="css" href="css/px-datetime-field.css"/>
   <template>
     <div class$="{{_getWrapperClass(dateIsValid, timeIsValid, isSelected)}}">
-      <px-datetime-entry
-        class$="{{_getEntryClass(inlineEdit)}}"
-        date-or-time="Date"
-        moment-format="{{dateFormat}}"
-        moment-obj="{{momentObj}}"
-        is-valid="{{dateIsValid}}"
-        is-selected="{{isSelected}}"
-        time-zone="{{timeZone}}"
-        show-time-zone="{{_showTimeZoneInDate(showTime, showTimeZone)}}"
-        block-future-dates="{{blockFutureDates}}">
-      </px-datetime-entry>
+      <template is="dom-if" if="{{!hideDate}}">
+        <px-datetime-entry
+          class$="{{_getEntryClass(inlineEdit)}}"
+          date-or-time="Date"
+          moment-format="{{dateFormat}}"
+          moment-obj="{{momentObj}}"
+          is-valid="{{dateIsValid}}"
+          is-selected="{{isSelected}}"
+          hide-icon="{{hideIcon}}"
+          time-zone="{{timeZone}}"
+          show-time-zone="{{_showTimeZoneInDate(showTime, showTimeZone)}}"
+          block-future-dates="{{blockFutureDates}}">
+        </px-datetime-entry>
+      </template>
       <template is="dom-if" if="{{showTime}}">
         <px-datetime-entry
           class$="{{_getEntryClass(inlineEdit)}}"
@@ -44,6 +47,7 @@
           show-time-zone="{{showTimeZone}}"
           moment-obj="{{momentObj}}"
           is-valid="{{timeIsValid}}"
+          hide-icon="{{hideIcon}}"
           time-zone="{{timeZone}}"
           is-selected="{{isSelected}}"
           block-future-dates="{{blockFutureDates}}">
@@ -103,11 +107,20 @@
         value: false
       },
       /**
+       * Controls whether date should be hidden in this field. Typically used
+       * in combination with showTime to make the field showing only the time
+       */
+      hideDate: {
+        type: Boolean,
+        value: false
+      },
+      /**
        *  Whether the date shown is valid.
        *
        */
       dateIsValid: {
         type: Boolean,
+        value: true,
         notify: true
       },
       /**
@@ -133,6 +146,15 @@
        * False - field is always an editable text field
        */
       inlineEdit: {
+        type: Boolean,
+        value: false
+      },
+      /**
+       *
+       * Whether the calendar/clock icon should be hidden
+       *
+       */
+      hideIcon: {
         type: Boolean,
         value: false
       }
