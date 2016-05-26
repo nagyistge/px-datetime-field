@@ -49,7 +49,9 @@ Predix branding rules go in px-datetime-input-predix.scss, not in this file.
 }
 
 // Trumps
-$inuit-enable-margins : true;
+$inuit-enable-margins--tiny  : true;
+$inuit-enable-margins--small : true;
+$inuit-enable-margins        : true;
 
 @import "inuit-clearfix/_trumps.clearfix.scss";
 @import "px-spacing-responsive-design/_trumps.spacing-responsive.scss";
