@@ -133,6 +133,15 @@
         notify: true
       },
       /**
+       *  If showing only the date whether the date is valid, if showing only the
+       *  time whetehr the time is valid, if showing both whether both are valids
+       *
+       */
+      isValid: {
+        type: Boolean,
+        computed: '_getIsValid(dateIsValid, timeIsValid)'
+      },
+      /**
        *  True if any cell is currently selected.
        *
        */
@@ -189,6 +198,9 @@
       }else {
         return ''
       }
+    },
+    _getIsValid: function(dateIsValid, timeIsValid) {
+      return dateIsValid && timeIsValid;
     }
   });
 </script>
