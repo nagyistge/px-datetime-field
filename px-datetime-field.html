@@ -27,7 +27,7 @@
     <div class$="{{_getWrapperClass(dateIsValid, timeIsValid, isSelected)}}">
       <template is="dom-if" if="{{!hideDate}}">
         <px-datetime-entry
-          class$="{{_getEntryClass(inlineEdit)}}"
+          class$="{{_getEntryClass(showTime, inlineEdit)}}"
           date-or-time="Date"
           moment-format="{{dateFormat}}"
           moment-obj="{{momentObj}}"
@@ -134,7 +134,7 @@
       },
       /**
        *  True if any cell is currently selected.
-       *
+       * @private
        */
       isSelected: {
         type: Boolean,
@@ -159,25 +159,31 @@
         value: false
       }
     },
-
+    /**
+     *
+     * inline--flex - add to keep the two entries inline
+     *
+     */
     _getWrapperClass: function(dateIsValid, timeIsValid, isSelected) {
-      var classList = "wrapper inline--flex text-field ";
+      var classList = "inline--flex dt-text-field ";
 
       if(dateIsValid !== true || timeIsValid !== true) {
         classList += "validation-failed ";
       } else if(isSelected) {
-        classList += "is-selected "
+        classList += "dt-is-selected "
         //find a way to trigger selected on the input field
       }
 
       return classList;
     },
 
-    _getEntryClass: function(inlineEdit) {
-      var classList = "flex ";
+    _getEntryClass: function(showTime, inlineEdit) {
+      var classList = "";
 
-      if(inlineEdit === true) {
-        classList += "text-field ";
+      if(showTime === true) {
+        classList += "u-mr ";
+      }else if (inlineEdit === true) {
+        classList += "dt-text-field ";
       }
 
       return classList;
