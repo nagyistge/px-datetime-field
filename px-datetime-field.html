@@ -27,7 +27,7 @@
     <div class$="{{_getWrapperClass(dateIsValid, timeIsValid, isSelected)}}">
       <template is="dom-if" if="{{!hideDate}}">
         <px-datetime-entry
-          class$="{{_getEntryClass(inlineEdit)}}"
+          class$="{{_getEntryDateClass(hideDate, hideTime)}}"
           date-or-time="Date"
           moment-format="{{dateFormat}}"
           moment-obj="{{momentObj}}"
@@ -35,13 +35,12 @@
           is-selected="{{isSelected}}"
           hide-icon="{{hideIcon}}"
           time-zone="{{timeZone}}"
-          show-time-zone="{{_showTimeZoneInDate(showTime, showTimeZone)}}"
+          show-time-zone="{{_showTimeZoneInDate(hideTime, showTimeZone)}}"
           block-future-dates="{{blockFutureDates}}">
         </px-datetime-entry>
       </template>
-      <template is="dom-if" if="{{showTime}}">
+      <template is="dom-if" if="{{!hideTime}}">
         <px-datetime-entry
-          class$="{{_getEntryClass(inlineEdit)}}"
           date-or-time="Time"
           moment-format="{{timeFormat}}"
           show-time-zone="{{showTimeZone}}"
@@ -69,22 +68,22 @@
      * @type Object
      */
     properties: {
-      /**
-       * Moment format used for the date
-       *
-       */
-      dateFormat: {
-          type: String,
-          value: 'MM/DD/YYYY'
-      },
-      /**
-       * Moment format used for the time
-       *
-       */
-      timeFormat: {
-          type: String,
-          value: 'HH:mm A'
-      },
+      // /**
+      //  * Moment format used for the date
+      //  *
+      //  */
+      // dateFormat: {
+      //     type: String,
+      //     value: 'MM/DD/YYYY'
+      // },
+      // /**
+      //  * Moment format used for the time
+      //  *
+      //  */
+      // timeFormat: {
+      //     type: String,
+      //     value: 'HH:mm A'
+      // },
       /**
        *
        * Can be set to show the timezone. Can have 2 values:
@@ -102,13 +101,13 @@
       /**
        * Controls whether time is displayed in this field
        */
-      showTime: {
+      hideTime: {
         type: Boolean,
         value: false
       },
       /**
        * Controls whether date should be hidden in this field. Typically used
-       * in combination with showTime to make the field showing only the time
+       * in combination with hideTime to make the field showing only the time
        */
       hideDate: {
         type: Boolean,
@@ -144,7 +143,7 @@
       },
       /**
        *  True if any cell is currently selected.
-       *
+       * @private
        */
       isSelected: {
         type: Boolean,
@@ -169,32 +168,36 @@
         value: false
       }
     },
-
+    /**
+     *
+     * inline--flex - add to keep the two entries inline
+     *
+     */
     _getWrapperClass: function(dateIsValid, timeIsValid, isSelected) {
-      var classList = "wrapper inline--flex text-field ";
+      var classList = "inline--flex dt-text-field ";
 
       if(dateIsValid !== true || timeIsValid !== true) {
         classList += "validation-failed ";
       } else if(isSelected) {
-        classList += "is-selected "
+        classList += "dt-is-selected "
         //find a way to trigger selected on the input field
       }
 
       return classList;
     },
 
-    _getEntryClass: function(inlineEdit) {
-      var classList = "flex ";
+    _getEntryDateClass: function(hideDate, hideTime) {
+      var classList = "";
 
-      if(inlineEdit === true) {
-        classList += "text-field ";
+      if(hideDate === false && hideTime === false) {
+        classList += "u-mr- ";
       }
 
       return classList;
     },
 
-    _showTimeZoneInDate: function(showTime, showTimeZone) {
-      if(!showTime || showTime === false) {
+    _showTimeZoneInDate: function(hideTime, showTimeZone) {
+      if(hideTime || hideTime === true) {
         return showTimeZone;
       }else {
         return ''

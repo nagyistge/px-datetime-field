@@ -21,22 +21,43 @@
         </p>
 
         <div>
-          <h5>Show time zone abbreviated</h5>
-          <px-datetime-field
-            moment-date-format="YYYY/MM/DD Z"
-            show-time-zone="abbreviatedText">
-          </px-datetime-field>
-        </div>
-        <br>
-        <div>
-          <h5>Just show date</h5>
+          <h5>Basic</h5>
           <px-datetime-field></px-datetime-field>
         </div>
         <br>
         <div>
-          <h5>Show time and abbreviated time zone</h5>
+          <h5>Show time zone abbreviated</h5>
           <px-datetime-field
-            show-time
+            date-format="YYYY/MM/DD Z"
+            time-format = "hh:mm:ss A"
+            show-time-zone="abbreviatedText">
+          </px-datetime-field>
+          <figure class="code u-mb+">
+            <code>
+              &lt;px-datetime-field
+              <br>
+              &nbsp;&nbsp;date-format="YYYY/MM/DD Z"
+              <br>
+              &nbsp;&nbsp;time-format = "hh:mm:ss A"
+              <br>
+              &nbsp;&nbsp;show-time-zone="abbreviatedText"&gt;
+              <br>
+              &lt;/px-datetime-field&gt;
+            </code>
+          </figure>
+        </div>
+        <br>
+        <div>
+          <h5>Just show date</h5>
+          <px-datetime-field
+            hide-time>
+          </px-datetime-field>
+        </div>
+        <br>
+        <div>
+          <h5>Show time and abbreviated time zone, date format "DD/MM/YYYY Z"</h5>
+          <px-datetime-field
+            date-format="DD/MM/YYYY Z"
             time-zone="UTC"
             show-time-zone="dropdown">
           </px-datetime-field>
@@ -45,7 +66,7 @@
         <div>
           <h5>Show time</h5>
           <px-datetime-field
-            show-time>
+            show-time-zone="text">
           </px-datetime-field>
         </div>
         <br>
@@ -53,7 +74,7 @@
           <h5>UTC</h5>
           <px-datetime-field
             time-zone="UTC"
-            show-time-zone="abbreviatedText">
+            show-time-zone="text">
           </px-datetime-field>
         </div>
         <br>
@@ -66,10 +87,10 @@
         </div>
         <br>
         <div>
-          <h5>hide date + show time</h5>
+          <h5>Show time, format "hh:mm:ss.SSS A"</h5>
           <px-datetime-field
-            show-time
-            hide-date>
+            hide-date
+            time-format = "hh:mm:ss.SSS A">
           </px-datetime-field>
         </div>
     </body>
