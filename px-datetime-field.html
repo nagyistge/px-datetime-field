@@ -24,7 +24,7 @@
 <dom-module id="px-datetime-field">
   <link rel="import" type="css" href="css/px-datetime-field.css"/>
   <template>
-    <div class$="{{_getWrapperClass(dateIsValid, timeIsValid, isSelected)}}">
+    <div id="fieldWrapper" class$="{{_getWrapperClass(dateIsValid, timeIsValid, isSelected, _forcedFailedClass)}}">
       <template is="dom-if" if="{{!hideDate}}">
         <px-datetime-entry
           class$="{{_getEntryDateClass(hideDate, hideTime)}}"
@@ -52,21 +52,6 @@
           block-future-dates="{{blockFutureDates}}">
         </px-datetime-entry>
       </template>
-      <!-- <template is="dom-if" if="{{!isValid}}"> -->
-        <!-- <div class="fa fa-fw validation-container">
-          <iron-icon class$="{{_getValidationIconClass(isValid)}}"
-            icon="polymer-font-awesome:fa-warning">
-          </iron-icon>
-          <template is="dom-if" if="{{!isValid}}">
-            <px-tooltip
-              class="tooltip-font"
-              smart-orientation
-              orientation="top"
-              tooltip-message="{{validationErrorMessage}}">
-            </px-tooltip>
-          </template>
-        </div> -->
-      <!-- </template> -->
     </div>
   </template>
 </dom-module>
@@ -161,6 +146,15 @@
         notify: true
       },
       /**
+       * Used to determine if the 'validation-failed' class need to be applied to '_getWrapperClass'
+       * this attribute is set by px-datetime-rage-field
+       *
+       */
+      _forcedFailedClass: {
+        type: Boolean,
+        value: false
+      },
+      /**
        * True if any cell is currently selected.
        * @private
        */
@@ -183,19 +177,29 @@
      * inline--flex - add to keep the two entries inline
      *
      */
-    _getWrapperClass: function(dateIsValid, timeIsValid, isSelected) {
+    _getWrapperClass: function(dateIsValid, timeIsValid, isSelected, _forcedFailedClass) {
       var classList = "inline--flex dt-text-field ";
 
-      if(dateIsValid !== true || timeIsValid !== true) {
+      if(dateIsValid !== true || timeIsValid !== true || _forcedFailedClass === true) {
         classList += "validation-failed ";
       } else if(isSelected) {
         classList += "dt-is-selected "
-        //find a way to trigger selected on the input field
       }
 
       return classList;
     },
-
+    /**
+     *
+     * inline--flex - add to keep the two entries inline
+     *
+     */
+    // _toggleFailClass: function(bool) {
+    //    this.toggleClass('validation-failed', bool, this.$.fieldWrapper);
+    // },
+    /**
+     *
+     *
+     */
     _getEntryDateClass: function(hideDate, hideTime) {
       var classList = "";
 
