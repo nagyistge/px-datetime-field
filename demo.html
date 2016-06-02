@@ -11,7 +11,11 @@
         <link rel="import" href="px-datetime-field.html"/>
         <link rel="import" href="../px-theme/px-theme.html"/>
     </head>
-
+    <style>
+      html {
+        font-size: 0.9375rem;
+      }
+    </style>
     <body>
 
         <h3>Demo</h3>
@@ -26,21 +30,33 @@
         </div>
         <br>
         <div>
+          <h5>All the bells and whistles</h5>
+          <px-datetime-field
+            date-format="MM/DD/YY"
+            time-format="hh:mm:ss A Z"
+            show-time-zone="abbreviatedText"
+            hide-time
+            hideIcon >
+          </px-datetime-field>
+        </div>
+        <br>
+        <div>
           <h5>Show time zone abbreviated</h5>
           <px-datetime-field
             date-format="YYYY/MM/DD Z"
             time-format = "hh:mm:ss A"
             show-time-zone="abbreviatedText">
           </px-datetime-field>
+
           <figure class="code u-mb+">
             <code>
               &lt;px-datetime-field
               <br>
-              &nbsp;&nbsp;date-format="YYYY/MM/DD Z"
+              &nbsp;&nbsp;date-format = "YYYY/MM/DD Z"
               <br>
               &nbsp;&nbsp;time-format = "hh:mm:ss A"
               <br>
-              &nbsp;&nbsp;show-time-zone="abbreviatedText"&gt;
+              &nbsp;&nbsp;show-time-zone = "abbreviatedText"&gt;
               <br>
               &lt;/px-datetime-field&gt;
             </code>

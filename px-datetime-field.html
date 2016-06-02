@@ -52,6 +52,21 @@
           block-future-dates="{{blockFutureDates}}">
         </px-datetime-entry>
       </template>
+      <!-- <template is="dom-if" if="{{!isValid}}"> -->
+        <!-- <div class="fa fa-fw validation-container">
+          <iron-icon class$="{{_getValidationIconClass(isValid)}}"
+            icon="polymer-font-awesome:fa-warning">
+          </iron-icon>
+          <template is="dom-if" if="{{!isValid}}">
+            <px-tooltip
+              class="tooltip-font"
+              smart-orientation
+              orientation="top"
+              tooltip-message="{{validationErrorMessage}}">
+            </px-tooltip>
+          </template>
+        </div> -->
+      <!-- </template> -->
     </div>
   </template>
 </dom-module>
@@ -68,22 +83,26 @@
      * @type Object
      */
     properties: {
-      // /**
-      //  * Moment format used for the date
-      //  *
-      //  */
-      // dateFormat: {
-      //     type: String,
-      //     value: 'MM/DD/YYYY'
-      // },
-      // /**
-      //  * Moment format used for the time
-      //  *
-      //  */
-      // timeFormat: {
-      //     type: String,
-      //     value: 'HH:mm A'
-      // },
+      /**
+       * Moment format string for the DATE format to display/validate this field against
+       * Year, month, day and offset tokens (Do not support Y, Q, MMM, MMMM, or Do)
+       * (see http://momentjs.com/docs/#/parsing/string-format/)
+       *
+       */
+      dateFormat: {
+          type: String,
+          value: 'YYYY-MM-DD'
+      },
+      /**
+       * Moment format string for the TIME format to display/validate this field against
+       * Hour, minute, second, millisecond, and offset tokens
+       * (see http://momentjs.com/docs/#/parsing/string-format/)
+       *
+       */
+      timeFormat: {
+          type: String,
+          value: 'HH:mm:ss A'
+      },
       /**
        *
        * Can be set to show the timezone. Can have 2 values:
@@ -114,8 +133,8 @@
         value: false
       },
       /**
-       *  Whether the date shown is valid.
-       *
+       * Whether the date shown is valid.
+       * @private
        */
       dateIsValid: {
         type: Boolean,
@@ -123,8 +142,8 @@
         notify: true
       },
       /**
-       *  Whether the time shown is valid.
-       *
+       * Whether the time shown is valid.
+       * @private
        */
       timeIsValid: {
         type: Boolean,
@@ -132,8 +151,8 @@
         notify: true
       },
       /**
-       *  If showing only the date whether the date is valid, if showing only the
-       *  time whetehr the time is valid, if showing both whether both are valids
+       * If showing only the date whether the date is valid, if showing only the
+       * time whetehr the time is valid, if showing both whether both are valids
        *
        */
       isValid: {
@@ -142,21 +161,12 @@
         computed: '_getIsValid(dateIsValid, timeIsValid)'
       },
       /**
-       *  True if any cell is currently selected.
+       * True if any cell is currently selected.
        * @private
        */
       isSelected: {
         type: Boolean,
         notify: true
-      },
-      /**
-       * Whether the field is editable inline or always an editable text field
-       * True - field is inline editable
-       * False - field is always an editable text field
-       */
-      inlineEdit: {
-        type: Boolean,
-        value: false
       },
       /**
        *
