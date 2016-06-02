@@ -142,8 +142,8 @@
        */
       isValid: {
         type: Boolean,
-        computed: '_getIsValid(dateIsValid, timeIsValid)',
-        notify: true
+        notify: true,
+        computed: '_getIsValid(dateIsValid, timeIsValid)'
       },
       /**
        * Used to determine if the 'validation-failed' class need to be applied to '_getWrapperClass'
