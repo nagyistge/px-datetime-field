@@ -25,8 +25,9 @@
   <link rel="import" type="css" href="css/px-datetime-field.css"/>
   <template>
     <div id="fieldWrapper" class$="{{_getWrapperClass(dateIsValid, timeIsValid, isSelected, _forcedFailedClass)}}">
-      <template is="dom-if" if="{{!hideDate}}">
+      <template is="dom-if" if="[[!hideDate]]">
         <px-datetime-entry
+          id="date"
           class$="{{_getEntryDateClass(hideDate, hideTime)}}"
           date-or-time="Date"
           moment-format="{{dateFormat}}"
@@ -39,8 +40,10 @@
           block-future-dates="{{blockFutureDates}}">
         </px-datetime-entry>
       </template>
-      <template is="dom-if" if="{{!hideTime}}">
+      <template is="dom-if" if="[[!hideTime]]">
         <px-datetime-entry
+          id="time"
+          class="inline--flex"
           date-or-time="Time"
           moment-format="{{timeFormat}}"
           show-time-zone="{{showTimeZone}}"
@@ -172,6 +175,49 @@
         value: false
       }
     },
+    listeners: {
+      'px-datetime-entry-icon-clicked':'_iconClicked',
+      'px-next-field': '_nextFieldRequired',
+      'px-previous-field': '_previousFieldRequired'
+    },
+    _nextFieldRequired: function(evt) {
+      var date = this.$$('#date');
+
+      //if this comes from date do some logic, otherwise let it propagate
+      if(date && evt.detail.dateOrTime === 'Date') {
+        if(!this.hideTime) {
+          this.$$('#time')._focusCell(0);
+          evt.stopPropagation();
+          evt.stopImmediatePropagation();
+        }
+      }
+    },
+    _previousFieldRequired: function(evt) {
+      var time = this.$$('#time');
+
+      //if this comes from time do some logic, otherwise let it propagate
+      if(time && evt.detail.dateOrTime === 'Time') {
+        if(!this.hideDate) {
+          this.$$('#date')._focusLastCell();
+          evt.stopPropagation();
+          evt.stopImmediatePropagation();
+        }
+      }
+    },
+    _focusFirstEntry: function(forceTimeFocus) {
+      if(!this.hideDate && !forceTimeFocus) {
+        this.$$('#date')._focusCell(0);
+      } else {
+        this.$$('#time')._focusCell(0);
+      }
+    },
+    _focusLastEntry: function() {
+      if(!this.hideTime) {
+        this.$$('#time')._focusLastCell();
+      } else {
+        this.$$('#date')._focusLastCell();
+      }
+    },
     /**
      *
      * inline--flex - add to keep the two entries inline
@@ -189,19 +235,9 @@
       return classList;
     },
     /**
-     *
-     * inline--flex - add to keep the two entries inline
-     *
-     */
-    // _toggleFailClass: function(bool) {
-    //    this.toggleClass('validation-failed', bool, this.$.fieldWrapper);
-    // },
-    /**
-     *
-     *
      */
     _getEntryDateClass: function(hideDate, hideTime) {
-      var classList = "";
+      var classList = "inline--flex ";
 
       if(hideDate === false && hideTime === false) {
         classList += "u-mr- ";
@@ -219,6 +255,13 @@
     },
     _getIsValid: function(dateIsValid, timeIsValid) {
       return dateIsValid && timeIsValid;
+    },
+    _iconClicked: function(evt) {
+      if(evt.detail.dateOrTime === "Date") {
+        this.$$('#date')._focusCell(0);
+      } else {
+        this.$$('#time')._focusCell(0);
+      }
     }
   });
 </script>
