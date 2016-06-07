@@ -175,11 +175,27 @@
         value: false
       }
     },
+    /*
+     *
+     */
     listeners: {
       'px-datetime-entry-icon-clicked':'_iconClicked',
       'px-next-field': '_nextFieldRequired',
       'px-previous-field': '_previousFieldRequired'
+    }
+    /*
+     *
+     */
+    _showTimeZoneInDate: function(hideTime, showTimeZone) {
+      if(hideTime || hideTime === true) {
+        return showTimeZone;
+      }else {
+        return ''
+      }
     },
+    /*
+     *
+     */
     _nextFieldRequired: function(evt) {
       var date = this.$$('#date');
 
@@ -192,6 +208,9 @@
         }
       }
     },
+    /*
+     *
+     */
     _previousFieldRequired: function(evt) {
       var time = this.$$('#time');
 
@@ -204,6 +223,9 @@
         }
       }
     },
+    /*
+     *
+     */
     _focusFirstEntry: function(forceTimeFocus) {
       if(!this.hideDate && !forceTimeFocus) {
         this.$$('#date')._focusCell(0);
@@ -211,6 +233,9 @@
         this.$$('#time')._focusCell(0);
       }
     },
+    /*
+     *
+     */
     _focusLastEntry: function() {
       if(!this.hideTime) {
         this.$$('#time')._focusLastCell();
@@ -245,17 +270,15 @@
 
       return classList;
     },
-
-    _showTimeZoneInDate: function(hideTime, showTimeZone) {
-      if(hideTime || hideTime === true) {
-        return showTimeZone;
-      }else {
-        return ''
-      }
-    },
+    /*
+     *
+     */
     _getIsValid: function(dateIsValid, timeIsValid) {
       return dateIsValid && timeIsValid;
     },
+    /*
+     *
+     */
     _iconClicked: function(evt) {
       if(evt.detail.dateOrTime === "Date") {
         this.$$('#date')._focusCell(0);
