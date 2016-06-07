@@ -180,6 +180,7 @@
       'px-next-field': '_nextFieldRequired',
       'px-previous-field': '_previousFieldRequired'
     },
+    observers: ['_momentChanged(momentObj)'],
     _nextFieldRequired: function(evt) {
       var date = this.$$('#date');
 
@@ -261,6 +262,12 @@
         this.$$('#date')._focusCell(0);
       } else {
         this.$$('#time')._focusCell(0);
+      }
+    },
+    _momentChanged: function(momentObj) {
+      if(this.isValid === true) {
+
+        this._applyCurrentValues(true);
       }
     }
   });

@@ -23,7 +23,7 @@
         <p>
             Also see the <a href="index.html">documentation</a> and the <a href="test/fixture.html">UI test fixture</a>.
         </p>
-
+        <span id="counter">px-datetime-submitted fired 0 time</span>
         <div>
           <h5>Basic</h5>
           <px-datetime-field></px-datetime-field>
@@ -44,8 +44,9 @@
           <h5>Show time zone abbreviated</h5>
           <px-datetime-field
             date-format="YYYY/MM/DD Z"
-            time-format = "hh:mm:ss A"
-            show-time-zone="abbreviatedText">
+            time-format = "hh:mm:ss"
+            show-time-zone="dropDown"
+            date-time="2010-12-12T21:01:30.310Z">
           </px-datetime-field>
 
           <figure class="code u-mb+">
@@ -110,4 +111,14 @@
           </px-datetime-field>
         </div>
     </body>
+    <script>
+    var i= 0,
+        span = document.getElementById('counter');
+
+    document.addEventListener('px-datetime-submitted', function(evt) {
+      i++;
+      span.innerHTML = 'px-datetime-submitted fired ' + i + ' time, last: ' + evt.detail.dateTime;
+    });
+
+  </script>
 </html>
