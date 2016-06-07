@@ -1,76 +1,73 @@
 <!doctype html>
-
 <html>
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>px-datetime-input Demo</title>
-        <!-- Requires Webcomponents.js polyfill is provided by the page for browsers that don't support html imports -->
-        <script src="../webcomponentsjs/webcomponents-lite.min.js"></script>
-        <!-- Import custom element. Note: see comment about relative paths to dependencies in the *.html file referenced below -->
-        <link rel="import" href="px-datetime-field.html"/>
-        <link rel="import" href="../px-theme/px-theme.html"/>
-    </head>
-    <style>
-      html {
-        font-size: 0.9375rem;
-      }
-    </style>
-    <body>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>px-datetime-input Demo</title>
+    <!-- Requires Webcomponents.js polyfill is provided by the page for browsers that don't support html imports -->
+    <script src="../webcomponentsjs/webcomponents-lite.min.js"></script>
+    <!-- Import custom element. Note: see comment about relative paths to dependencies in the *.html file referenced below -->
+    <link rel="import" href="px-datetime-field.html"/>
+    <link rel="import" href="../px-theme/px-theme.html"/>
+    <link rel="import" href="../iron-ajax/iron-ajax.html"/>
 
-        <h3>Demo</h3>
+  </head>
+  <style>
+    html {
+      font-size: 0.9375rem;
+    }
+  </style>
+  <body>
+
+      <h3>Demo</h3>
 
         <p>
             Also see the <a href="index.html">documentation</a> and the <a href="test/fixture.html">UI test fixture</a>.
         </p>
         <span id="counter">px-datetime-submitted fired 0 time</span>
+
+      <!-- Wrap elements with auto-binding template to -->
+      <!-- allow use of Polymer bindings in main document -->
+      <template id="just-for-demo" is="dom-bind">
+
         <div>
           <h5>Basic</h5>
           <px-datetime-field></px-datetime-field>
         </div>
-        <br>
+        <br />
         <div>
           <h5>All the bells and whistles</h5>
           <px-datetime-field
             date-format="MM/DD/YY"
-            time-format="hh:mm:ss A Z"
-            show-time-zone="abbreviatedText"
-            hide-time
-            hideIcon >
-          </px-datetime-field>
-        </div>
-        <br>
-        <div>
-          <h5>Show time zone abbreviated</h5>
-          <px-datetime-field
-            date-format="YYYY/MM/DD Z"
-            time-format = "hh:mm:ss"
-            show-time-zone="dropDown"
-            date-time="2010-12-12T21:01:30.310Z">
-          </px-datetime-field>
+            time-format="HH:mm:ss Z"
+            show-time-zone="dropdown"
 
-          <figure class="code u-mb+">
-            <code>
-              &lt;px-datetime-field
-              <br>
-              &nbsp;&nbsp;date-format = "YYYY/MM/DD Z"
-              <br>
-              &nbsp;&nbsp;time-format = "hh:mm:ss A"
-              <br>
-              &nbsp;&nbsp;show-time-zone = "abbreviatedText"&gt;
-              <br>
-              &lt;/px-datetime-field&gt;
-            </code>
-          </figure>
+            hide-icon
+            date-time = "2013-04-07T00:00:00Z"
+            >
+            <!-- 2013-01-07T00:00:00Z -->
+          </px-datetime-field>
         </div>
-        <br>
+        <br />
+        <div>
+          <h5>Show time zone abbreviated {{inputAuto}}</h5>
+          <px-datetime-field
+            id="inputA"
+            date-format="YYYY/MM/DD"
+            time-format="hh:mm:ss A"
+            show-time-zone="abbreviatedText"
+            date-time='{{inputAuto}}'
+            >
+          </px-datetime-field>
+        </div>
+        <br />
         <div>
           <h5>Just show date</h5>
           <px-datetime-field
-            hide-time>
+            hide-time >
           </px-datetime-field>
         </div>
-        <br>
+        <br />
         <div>
           <h5>Show time and abbreviated time zone, date format "DD/MM/YYYY Z"</h5>
           <px-datetime-field
@@ -79,14 +76,14 @@
             show-time-zone="dropdown">
           </px-datetime-field>
         </div>
-        <br>
+        <br />
         <div>
           <h5>Show time</h5>
           <px-datetime-field
             show-time-zone="text">
           </px-datetime-field>
         </div>
-        <br>
+        <br />
         <div>
           <h5>UTC</h5>
           <px-datetime-field
@@ -94,7 +91,7 @@
             show-time-zone="text">
           </px-datetime-field>
         </div>
-        <br>
+        <br />
         <div>
           <h5>UTC + dropdown timezone</h5>
           <px-datetime-field
@@ -102,7 +99,7 @@
             show-time-zone="dropdown">
           </px-datetime-field>
         </div>
-        <br>
+        <br />
         <div>
           <h5>Show time, format "hh:mm:ss.SSS A"</h5>
           <px-datetime-field
@@ -119,6 +116,12 @@
       i++;
       span.innerHTML = 'px-datetime-submitted fired ' + i + ' time, last: ' + evt.detail.dateTime;
     });
-
-  </script>
+    document.addEventListener('WebComponentsReady', function() {
+      var inputAuto = Polymer.dom(document).querySelector('#inputA');
+      inputAuto.set(
+          'dateTime',
+          "2010-04-14T02:00:00Z"
+       )
+    });
+    </script>
 </html>
