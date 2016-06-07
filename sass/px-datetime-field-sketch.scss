@@ -32,6 +32,10 @@ Predix branding rules go in px-datetime-input-predix.scss, not in this file.
 
 @import "px-forms-design/_base.forms.scss";
 
+:host{
+  --dropdown_content_margin: 5px 0px 0px 0px; 
+}
+
 .dt-text-field{
   margin: 0;
   border: $inuit-forms-border--outer;
