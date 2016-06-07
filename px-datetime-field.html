@@ -193,6 +193,7 @@
         return ''
       }
     },
+    observers: ['_momentChanged(momentObj)'],
     /*
      *
      */
@@ -284,6 +285,12 @@
         this.$$('#date')._focusCell(0);
       } else {
         this.$$('#time')._focusCell(0);
+      }
+    },
+    _momentChanged: function(momentObj) {
+      if(this.isValid === true) {
+
+        this._applyCurrentValues(true);
       }
     }
   });
