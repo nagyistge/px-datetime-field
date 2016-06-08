@@ -45,7 +45,6 @@
             hide-icon
             date-time = "2013-04-07T00:00:00Z"
             >
-            <!-- 2013-01-07T00:00:00Z -->
           </px-datetime-field>
         </div>
         <br />
@@ -107,6 +106,12 @@
             time-format = "hh:mm:ss.SSS A">
           </px-datetime-field>
         </div>
+        <div>
+          <h5>Show buttons</h5>
+          <px-datetime-field
+            show-buttons>
+          </px-datetime-field>
+        </div>
     </body>
     <script>
     var i= 0,
@@ -118,10 +123,7 @@
     });
     document.addEventListener('WebComponentsReady', function() {
       var inputAuto = Polymer.dom(document).querySelector('#inputA');
-      inputAuto.set(
-          'dateTime',
-          "2010-04-14T02:00:00Z"
-       )
+    //  inputAuto.dateTime = "2010-04-14T02:00:00Z";
     });
     </script>
 </html>

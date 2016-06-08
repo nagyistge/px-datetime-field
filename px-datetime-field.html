@@ -8,6 +8,8 @@
 <link rel="import" href="../px-datetime-common/px-datetime-imports.html"/>
 <link rel="import" href="../px-datetime-common/px-datetime-entry.html"/>
 <link rel="import" href="../px-datetime-common/px-datetime-behavior.html"/>
+<link rel="import" href="../px-datetime-common/px-datetime-buttons.html"/>
+<link rel="import" href="../px-datetime-common/px-datetime-button-behavior.html"/>
 
 
 <!--
@@ -56,6 +58,11 @@
         </px-datetime-entry>
       </template>
     </div>
+    <template is="dom-if" if="{{showButtons}}">
+      <px-datetime-buttons
+        is-submit-button-valid="[[isValid]]">
+      </px-datetime-buttons>
+    </template>
   </template>
 </dom-module>
 
@@ -63,7 +70,8 @@
   Polymer({
     is: 'px-datetime-field',
 
-    behaviors: [pxDatetimeBehavior],
+    behaviors: [pxDatetimeBehavior,
+                pxDatetimeButtonBehavior],
     /**
      * Properties block, expose attribute values to the DOM via 'reflect'
      *
@@ -181,7 +189,8 @@
     listeners: {
       'px-datetime-entry-icon-clicked':'_iconClicked',
       'px-next-field': '_nextFieldRequired',
-      'px-previous-field': '_previousFieldRequired'
+      'px-previous-field': '_previousFieldRequired',
+      'px-datetime-button-clicked': '_dateTimeButtons'
     },
     /*
      *
@@ -288,10 +297,13 @@
       }
     },
     _momentChanged: function(momentObj) {
-      if(this.isValid === true) {
+      if(this.isValid === true && !this.showButtons) {
 
         this._applyCurrentValues(true);
       }
-    }
+    },
+    _dateTimeButtons: function(evt) {
+      this._applyCurrentValues(evt.detail.action);
+    },
   });
 </script>
