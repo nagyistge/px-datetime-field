@@ -1,3 +1,7 @@
+v0.2.0
+==================
+* lot of changes toward first release
+
 v0.1.1
 ==================
 * bump datetime common version + support allowFutureDates
