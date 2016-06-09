@@ -6,7 +6,7 @@ function runCustomTests() {
 
   // This is the placeholder suite to place custom tests in
   // Use testCase(options) for a more convenient setup of the test cases
-  suite('Custom Automation Tests for px-datetime-field', function() {
+  suite('Navigation', function() {
 
     test('show date and time', function(done) {
       var entries = Polymer.dom(field.root).querySelectorAll('px-datetime-entry');
@@ -166,6 +166,71 @@ function runCustomTests() {
 
 
 
+  });
+
+
+
+  suite('submit', function() {
+
+    test('event is not fired when changing invalid value', function(done) {
+      var entries = Polymer.dom(field.root).querySelectorAll('px-datetime-entry'),
+          dateCells = Polymer.dom(entries[0].root).querySelectorAll('px-datetime-entry-cell'),
+          i = 0;
+
+      var listener = function(evt) {
+        i++;
+        //make sure string has been kept in sync
+        assert.equal(field.momentObj.toISOString(), field.dateTime);
+      };
+
+      field.addEventListener('px-datetime-submitted', listener);
+
+      //invalid month, should not trigger event
+      fireKeyboardEvent(dateCells[1], '9');
+      fireKeyboardEvent(dateCells[1], '9');
+
+      setTimeout(function() {
+        assert.equal(i, 0);
+        field.removeEventListener('px-datetime-submitted', listener);
+        done();
+      }, 100);
+    });
+
+    test('event is fired when changing valid value', function(done) {
+      var entries = Polymer.dom(field.root).querySelectorAll('px-datetime-entry'),
+          dateCells = Polymer.dom(entries[0].root).querySelectorAll('px-datetime-entry-cell'),
+          i = 0;
+
+      var listener = function(evt) {
+        i++;
+        //make sure string has been kept in sync
+        assert.equal(field.momentObj.toISOString(), field.dateTime);
+      };
+
+      field.addEventListener('px-datetime-submitted', listener);
+
+      //valid month, should trigger event
+      fireKeyboardEvent(dateCells[1], '0');
+      fireKeyboardEvent(dateCells[1], '2');
+
+      setTimeout(function() {
+        assert.equal(i, 1);
+        field.removeEventListener('px-datetime-submitted', listener);
+        done();
+      }, 100);
+    });
+
+    test('datetime kept in sync when changing moment', function() {
+
+      field.momentObj = moment.tz(moment("2013-04-07T00:00:00Z"), field.timeZone);
+      assert.equal(field.momentObj.toISOString(), field.dateTime);
+    });
+
+    test('moment kept in sync when changing datetime', function() {
+
+      field.dateTime = "2009-06-07T00:00:00Z";
+      assert.equal(field.momentObj.toISOString(), field.dateTime);
+    });
   });
 
 };
