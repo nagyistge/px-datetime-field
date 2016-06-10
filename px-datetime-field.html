@@ -203,6 +203,13 @@
       }
     },
     observers: ['_momentChanged(momentObj)'],
+    /**
+     * Key bindings for iron-a11y-keys-behavior
+     */
+    keyBindings: {
+      'esc' : '_onEsc',
+      'enter': '_onEnter'
+    },
     /*
      *
      */
@@ -304,6 +311,16 @@
     },
     _dateTimeButtons: function(evt) {
       this._applyCurrentValues(evt.detail.action);
+    },
+    _onEsc: function(evt) {
+      if(this.showButtons) {
+        this._applyCurrentValues(false);
+      }
+    },
+    _onEnter: function(evt) {
+      if(this.showButtons) {
+        this._applyCurrentValues(true);
+      }
     },
   });
 </script>
