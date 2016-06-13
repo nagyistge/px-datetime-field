@@ -191,9 +191,17 @@ function runCustomTests() {
       }, 100);
     });
 
+    test('when date is invalid validation-failed class is applied', function() {
+      var wrapper = Polymer.dom(field.root).querySelector('#fieldWrapper');
+
+      //we're in invalid state from previous state
+      assert.isTrue(wrapper.classList.contains('validation-failed'));
+    });
+
     test('event is fired when changing valid value', function(done) {
       var entries = Polymer.dom(field.root).querySelectorAll('px-datetime-entry'),
           dateCells = Polymer.dom(entries[0].root).querySelectorAll('px-datetime-entry-cell'),
+          wrapper = Polymer.dom(field.root).querySelector('#fieldWrapper'),
           i = 0;
 
       var listener = function(evt) {
@@ -210,6 +218,9 @@ function runCustomTests() {
 
       setTimeout(function() {
         assert.equal(i, 1);
+
+        //validation failed should have been removed
+        assert.isFalse(wrapper.classList.contains('validation-failed'));
         field.removeEventListener('px-datetime-submitted', listener);
         done();
       }, 100);
