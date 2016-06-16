@@ -1,3 +1,7 @@
+v0.3.2
+==================
+* added auto github pages build
+
 v0.3.1
 ==================
 * Added preventNotificationOnChange
