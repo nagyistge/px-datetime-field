@@ -1,6 +1,11 @@
+v0.3.1
+==================
+* Added preventNotificationOnChange
+
 v0.3.0
 ==================
 * Upgrade to Polymer 1.5.0
+
 v0.2.1
 ==================
 * Improve demo

@@ -176,6 +176,15 @@
       hideIcon: {
         type: Boolean,
         value: false
+      },
+      /**
+       *
+       * Used to prevent this element from firing px-datetime-range-submitted
+       * event and prevent changes to range
+       */
+      preventNotificationOnChange: {
+        type: Boolean,
+        value: false
       }
     },
     /*
@@ -299,21 +308,23 @@
       }
     },
     _momentChanged: function(momentObj) {
-      if(this.isValid === true && !this.showButtons) {
+      if(this.isValid === true && !this.showButtons && !this.preventNotificationOnChange) {
 
         this._applyCurrentValues(true);
       }
     },
     _dateTimeButtons: function(evt) {
-      this._applyCurrentValues(evt.detail.action);
+      if(!this.preventNotificationOnChange) {
+        this._applyCurrentValues(evt.detail.action);
+      }
     },
     _onEsc: function(evt) {
-      if(this.showButtons) {
+      if(this.showButtons && !this.preventNotificationOnChange) {
         this._applyCurrentValues(false);
       }
     },
     _onEnter: function(evt) {
-      if(this.showButtons) {
+      if(this.showButtons && !this.preventNotificationOnChange) {
         this._applyCurrentValues(true);
       }
     },
