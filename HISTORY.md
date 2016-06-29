@@ -1,3 +1,7 @@
+v0.4.0
+==================
+* Added blockPastDates
+
 v0.3.2
 ==================
 * added auto github pages build
