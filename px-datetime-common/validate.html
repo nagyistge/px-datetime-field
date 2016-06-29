@@ -65,8 +65,8 @@ var validate = {
 
     //added to be able to use Moment strict parsing
     inputStr = inputStr.split('\xa0').join(' ');
-    var inputMoment = moment.tz(inputStr, this.momentFormat, this.timeZone),
-        notAllowedInFuture = this.blockFutureDates && inputMoment.isAfter(moment.tz(moment(), this.timezone), 'day');
+    var inputMoment = Px.moment.tz(inputStr, this.momentFormat, this.timeZone),
+        notAllowedInFuture = this.blockFutureDates && inputMoment.isAfter(Px.moment.tz(Px.moment(), this.timezone), 'day');
 
     // if the component datetime string is a valid datetime
     if(inputMoment.isValid() &&
@@ -81,7 +81,7 @@ var validate = {
       */
       var newMoment = this.momentObj.clone();
       // just use the relevant fields, so ok if not in utc timemoment
-      var typedInMoment = moment.tz(inputStr, this.momentFormat, this.timeZone);
+      var typedInMoment = Px.moment.tz(inputStr, this.momentFormat, this.timeZone);
 
       // since the input box only has date or time, just reset that portion of the moment object
       if (this.dateOrTime.toLowerCase() === 'date') { // if i'm typing in a date field, set the new date

@@ -308,7 +308,7 @@ Datetime input element. Includes iron-ally-keys-behavior to limit keystrokes to 
       }
       //if the format is YYYY or Y and the input is 2 characters then covert the input to a 4 characters year representation
       else if(this.dtWorkingCopy.length === 2 && this.momentFormat === 'YYYY'){
-        var mo = moment(this.dtWorkingCopy, 'YY');
+        var mo = Px.moment(this.dtWorkingCopy, 'YY');
         this.set('dtWorkingCopy',mo.format(this.momentFormat));
       }
       else if(this.momentFormat[0] === 'S' && this.dtWorkingCopy.length < this.momentFormat.length){
@@ -420,7 +420,7 @@ Datetime input element. Includes iron-ally-keys-behavior to limit keystrokes to 
      * @method
      */
      _setAMPM:function(ampm){
-       var mo = moment('01:00:00 '+ ampm, 'hh:mm:ss ' + this.momentFormat);
+       var mo = Px.moment('01:00:00 '+ ampm, 'hh:mm:ss ' + this.momentFormat);
        this.set('dtWorkingCopy', mo.tz(this.timeZone).format(this.momentFormat));
      },
     /**

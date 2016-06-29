@@ -1,6 +1,6 @@
 {
   "name": "px-datetime-common",
-  "version": "0.4.0",
+  "version": "0.4.4",
   "main": [
     "px-datetime-common.html"
   ],

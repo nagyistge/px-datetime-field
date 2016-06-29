@@ -72,7 +72,7 @@ Range field component which displays a time or date and font awesome icon.
         </template>
       </div>
       <template is="dom-if" if="{{!isValid}}">
-        <div class="fa fa-fw validation-container">
+        <div class="fa fa-fw validation-container flex flex--middle">
           <iron-icon class$="{{_getValidationIconClass(isValid)}}"
             icon="polymer-font-awesome:fa-warning">
           </iron-icon>
@@ -331,7 +331,7 @@ Range field component which displays a time or date and font awesome icon.
      */
     _getTimeZoneList: function(showTimeZone) {
       if(showTimeZone === "extendedDropdown") {
-        return moment.tz.names();
+        return Px.moment.tz.names();
       } else if (showTimeZone === "dropdown"){
         return [
           "Etc/GMT",
@@ -375,7 +375,7 @@ Range field component which displays a time or date and font awesome icon.
      *
      */
     _handleCopy: function(e) {
-      e.detail.setData('Text', moment.tz(this.momentObj, this.timeZone).format(this.momentFormat));
+      e.detail.setData('Text', Px.moment.tz(this.momentObj, this.timeZone).format(this.momentFormat));
       e.stopPropagation();
     },
     /**
@@ -386,7 +386,7 @@ Range field component which displays a time or date and font awesome icon.
     _handlePaste: function(e) {
       //try parsing what's been pasted...
       var data = e.detail.getData('Text'),
-          newDate = moment(data, this.momentFormat);
+          newDate = Px.moment(data, this.momentFormat);
       if(newDate.isValid()) {
 
         //if this comes from another datetime-entry make sure it is the same type
@@ -408,7 +408,7 @@ Range field component which displays a time or date and font awesome icon.
      */
     _getTimeZoneText: function(timeZone, showTimeZone, momentObj) {
       if(showTimeZone === "abbreviatedText") {
-        return moment.tz.zone(timeZone).abbr(momentObj);
+        return Px.moment.tz.zone(timeZone).abbr(momentObj);
       } else if (showTimeZone === "text"){
         return timeZone;
       }

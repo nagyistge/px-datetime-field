@@ -40,7 +40,8 @@ var pxDatetimeSharedBehavior = [{
       type: String,
       notify: true,
       value: function() {
-        return moment.tz.guess();
+        
+        return Px.moment.tz.guess();
       },
       observer: '_timeZoneChanged'
     }
@@ -52,7 +53,7 @@ var pxDatetimeSharedBehavior = [{
   * @param {String} timeString
   */
   _convertISOtoMoment: function(timeString) {
-    return moment.tz(moment(timeString, moment.ISO_8601), this.timeZone);
+    return Px.moment.tz(moment(timeString, Px.moment.ISO_8601), this.timeZone);
   },
   /**
    * Copies the time in toPreserve to dest and returns dest.

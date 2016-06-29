@@ -67,8 +67,8 @@ var pxDatetimeRangeBehavior = [{
       notify: true,
       value: function() {
         return {
-          from: moment().subtract(7, 'day').toISOString(),
-          to: moment().toISOString()
+          from: Px.moment().subtract(7, 'day').toISOString(),
+          to: Px.moment().toISOString()
         };
       },
       observer: '_notifyRangeChanged'

@@ -1,6 +1,6 @@
 {
   "name": "px-datetime-field",
-  "version": "0.3.1",
+  "version": "0.3.2",
   "main": [
     "px-datetime-field.html"
   ],
@@ -25,11 +25,11 @@
     "px-starter-kit-design": "https://github.com/PredixDev/px-starter-kit-design.git#~0.4.9"
   },
   "homepage": "https://github.com/PredixDev/px-datetime-field",
-  "_release": "0.3.1",
+  "_release": "0.3.2",
   "_resolution": {
     "type": "version",
-    "tag": "v0.3.1",
-    "commit": "d04e9f54621ca670a9e01696875f59d00ede2e58"
+    "tag": "v0.3.2",
+    "commit": "c7361ed0b68bb6a6210e742a3afe0180a0d6a6c4"
   },
   "_source": "https://github.com/PredixDev/px-datetime-field.git",
   "_target": "^0.3.1",

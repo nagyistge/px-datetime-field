@@ -1,3 +1,19 @@
+v0.4.4
+==================
+* Fixed css bug with error icon
+
+v0.4.3
+==================
+* Keep local copy of moment.js
+
+v0.4.2
+==================
+* added polymer behavior declaration
+
+v0.4.1
+==================
+* add auto generation of gh pages
+
 v0.4.0
 ==================
 * Upgrade to Polymer 1.5.0
