@@ -1,3 +1,7 @@
+v0.5.0
+==================
+* Added block past dates
+
 v0.4.4
 ==================
 * Fixed css bug with error icon

@@ -31,6 +31,18 @@ var pxDatetimeSharedBehavior = [{
     },
     /**
      *
+     * Set this attribute when you do want to allow past dates in the 'px-date-panel' component.
+     *
+     * Defined In: 'pxDatetimeBehavior'
+     *
+     * @default false (past dates will be disabled and unclickable)
+     */
+    blockPastDates: {
+      type: Boolean,
+      value: false
+    },
+    /**
+     *
      * Moment-timezone string for using a specific timezone. See
      * http://momentjs.com/timezone/docs/#/data-loading/getting-zone-names/
      *

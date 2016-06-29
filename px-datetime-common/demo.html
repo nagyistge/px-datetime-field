@@ -27,6 +27,7 @@
         show-time-zone="{{showTimeZone}}"
         time-zone="{{timeZone}}"
         block-future-dates="{{blockFutureDates}}"
+        block-past-dates="{{blockPastDates}}"
         is-valid="{{isValidd}}"
         hide-icon="{{hideIcon}}"
         is-selected="{{isSelected}}"
@@ -35,6 +36,7 @@
       <br>
       <h3>Properties</h3>
       <div>Block future dates<input type="checkbox" checked="{{blockFutureDates::change}}"></input></div>
+      <div>Block past dates<input type="checkbox" checked="{{blockPastDates::change}}"></input></div>
       <div>Hide icon<input type="checkbox" checked="{{hideIcon::change}}"></input></div>
       <div>Moment format: <input id="momentFormat" type="text" value="{{momentFormat::input}}"></input></div>
       <div>Date or time: <input id="dateOrTime" type="text" value="{{dateOrTime::input}}"></input></div>

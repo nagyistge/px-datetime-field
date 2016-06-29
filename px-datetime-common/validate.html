@@ -66,11 +66,12 @@ var validate = {
     //added to be able to use Moment strict parsing
     inputStr = inputStr.split('\xa0').join(' ');
     var inputMoment = Px.moment.tz(inputStr, this.momentFormat, this.timeZone),
-        notAllowedInFuture = this.blockFutureDates && inputMoment.isAfter(Px.moment.tz(Px.moment(), this.timezone), 'day');
+        notAllowedInFuture = this.blockFutureDates && inputMoment.isAfter(Px.moment.tz(Px.moment(), this.timezone), 'day'),
+        notAllowedInPast = this.blockPastDates && inputMoment.isBefore(Px.moment.tz(Px.moment(), this.timezone), 'day');
 
     // if the component datetime string is a valid datetime
-    if(inputMoment.isValid() &&
-       !notAllowedInFuture) {
+    if((inputMoment.isValid() && !notAllowedInFuture) ||
+        (inputMoment.isValid() && !notAllowedInPast)) {
       // turn off input box error outline
       this.toggleClass('validation-error', false, this.$.wrapper);
       /*
@@ -108,7 +109,9 @@ var validate = {
       //the input box string is not a valid date/time
       if(notAllowedInFuture) {
         this.set('validationErrorMessage', 'Future dates are not allowed');
-      }else {
+      } else if(notAllowedInPast) {
+        this.set('validationErrorMessage', 'Past dates are not allowed');
+      } else {
         var invalidAt = inputMoment.invalidAt();
 
         if(invalidAt !== -1) {
