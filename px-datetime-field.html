@@ -39,7 +39,8 @@
           hide-icon="{{hideIcon}}"
           time-zone="{{timeZone}}"
           show-time-zone="{{_showTimeZoneInDate(hideTime, showTimeZone)}}"
-          block-future-dates="{{blockFutureDates}}">
+          block-future-dates="{{blockFutureDates}}"
+          block-past-dates="{{blockPastDates}}">
         </px-datetime-entry>
       </template>
       <template is="dom-if" if="[[!hideTime]]">
@@ -54,7 +55,8 @@
           hide-icon="{{hideIcon}}"
           time-zone="{{timeZone}}"
           is-selected="{{isSelected}}"
-          block-future-dates="{{blockFutureDates}}">
+          block-future-dates="{{blockFutureDates}}"
+          block-past-dates="{{blockPastDates}}">
         </px-datetime-entry>
       </template>
     </div>
