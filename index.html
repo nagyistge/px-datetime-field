@@ -69,14 +69,19 @@
             <div class="properties u-ph+ u-pb+ u-mt++ u-mh++" id="properties">
               <p class="epsilon">Properties</p>
               <div class="flex u-mb-">
+                <input id="toggleDate{{indexPlusOne(index)}}" class="toggle__input toggle__input--small" type="checkbox" checked="{{item.hideDate::change}}">
+                <label for$="toggleDate{{indexPlusOne(index)}}" class="toggle__label toggle__label--small"></label>
+                <div class="u-ml-">Hide date</div>
+              </div>
+              <div class="flex u-mb-">
                 <input id="toggleTime{{indexPlusOne(index)}}" class="toggle__input toggle__input--small" type="checkbox" checked="{{item.hideTime::change}}">
                 <label for$="toggleTime{{indexPlusOne(index)}}" class="toggle__label toggle__label--small"></label>
                 <div class="u-ml-">Hide time</div>
               </div>
               <div class="flex u-mb-">
-                <input id="togglePresets{{indexPlusOne(index)}}" class="toggle__input toggle__input--small" type="checkbox" checked="{{item.hidePresets::change}}">
-                <label for$="togglePresets{{indexPlusOne(index)}}" class="toggle__label toggle__label--small"></label>
-                <div class="u-ml-">Hide Presets</div>
+                <input id="toggleIcon{{indexPlusOne(index)}}" class="toggle__input toggle__input--small" type="checkbox" checked="{{item.hideIcon::change}}">
+                <label for$="toggleIcon{{indexPlusOne(index)}}" class="toggle__label toggle__label--small"></label>
+                <div class="u-ml-">Hide icon</div>
               </div>
               <div class="flex u-mb-">
                 <input id="toggleButtons{{indexPlusOne(index)}}" class="toggle__input toggle__input--small" type="checkbox" checked="{{item.showButtons::change}}">
@@ -93,6 +98,7 @@
                 <label for$="togglePastDates{{indexPlusOne(index)}}" class="toggle__label toggle__label--small"></label>
                 <div class="u-ml-">Block past dates</div>
               </div>
+              <!-- <div class="u-mb-">Date time input: <input id="dateTime" class="text-input" type="text" placeholder="2016-01-01T01:00:00.000Z" value="{{item.dateTime::input}}" /></div> -->
               <div class="u-mb-">Date format: <input id="dateFormat" class="text-input" type="text" placeholder="YYYY/MM/DD" value="{{item.dateFormat::input}}" /></div>
               <div class="u-mb-">Time format: <input id="timeFormat" class="text-input" type="text" placeholder="hh:mm:ss A" value="{{item.timeFormat::input}}" /></div>
               <div class="u-mb-">Time zone: <input id="timeZone" class="text-input" type="text" placeholder="UTC" value="{{item.timeZone::input}}" /></div>
@@ -118,23 +124,23 @@
               <div class="flex flex--col">
                 <div class="flex__item demo u-ph+ u-pb+ u-mt++">
                   <br />
-                  <span id="counter"><strong>px-datetime-range-submitted</strong> fired <strong>0</strong> time</span>
+                  <span id="counter"><strong>px-datetime-field-submitted</strong> fired <strong>0</strong> time</span>
                   <div>
-                    Current range object: From: <strong>{{item.range.from}}</strong> To: <strong>{{item.range.to}}</strong>
+                    Current dateTime object: <strong>{{item.dateTime}}</strong>
                   </div>
                   <br />
                   <px-datetime-field
-                    id="range"
-                    range={{item.range}}
+                    id="dateTime"
+                    date-time="{{item.dateTime}}"
                     date-format="{{item.dateFormat}}"
                     time-format="{{item.timeFormat}}"
                     show-buttons="{{item.showButtons}}"
-                    block-past-dates="{{item.blockPastDates}}"
                     block-future-dates="{{item.blockFutureDates}}"
+                    block-past-dates="{{item.blockPastDates}}"
                     hide-time="{{item.hideTime}}"
-                    hide-presets="{{item.hidePresets}}"
+                    hide-date="{{item.hideDate}}"
                     show-time-zone="{{item.showTimeZone}}"
-                    is-valid="{{item.isValid}}"
+                    hide-icon="{{item.hideIcon}}"
                     time-zone="{{item.timeZone}}">
                   </px-datetime-field>
                 </div>
@@ -162,7 +168,7 @@
 <script>
 window.addEventListener('WebComponentsReady', function() {
   var template = document.querySelector('template[is=dom-bind]'),
-      range = {"from": "2016-01-01T01:00:00.000Z", "to": "2016-07-01T11:00:00.000Z"},
+      dateTime = "2016-01-01T01:00:00.000Z",
       dateFormat = ["YYYY/MM/DD","MM/DD/YY","DD/MM/YY"],
       timeFormat = ["hh:mm:ss A","HH:mm:ss.SSS"],
       showTimeZone = ["text","abbreviatedText","dropdown"],
@@ -170,40 +176,43 @@ window.addEventListener('WebComponentsReady', function() {
 
   var optionsArray = [
     {
-      "range":range,
+      "dateTime":dateTime,
       "dateFormat":dateFormat[0],
       "timeFormat":timeFormat[0],
-      "showButtons":true,
+      "showButtons":false,
       "blockFutureDates":false,
       "blockPastDates":false,
       "hideTime":false,
-      "hidePresets":false,
+      "hideDate":false,
+      "hideIcon":false,
       "showTimeZone":showTimeZone[0],
       "timeZone":timeZone[0]
     },
     {
-      "range":range,
+      "dateTime":dateTime,
       "dateFormat":dateFormat[1],
       "timeFormat":timeFormat[0],
       "showButtons":false,
       "blockPastDates":false,
       "blockFutureDates":false,
-      "hidePresets":true,
+      "hideDate":false,
       "hideTime":true,
+      "hideIcon":false,
       "showTimeZone":showTimeZone[1],
       "timeZone":timeZone[1]
     },
     {
-      "range":range,
+      "dateTime":dateTime,
       "dateFormat":dateFormat[2],
       "timeFormat":timeFormat[1],
       "showButtons":false,
       "blockFutureDates":true,
       "blockPastDates":false,
-      "hidePresets":true,
+      "hideDate":true,
       "hideTime":false,
+      "hideIcon":false,
       "showTimeZone":showTimeZone[2],
-      "timeZone":timeZone[1]
+      "timeZone":timeZone[2]
     }
   ];
 
