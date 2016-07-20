@@ -24,7 +24,8 @@ module.exports = function (grunt) {
             dist: {
                 files: {
                     'css/noprefix/px-datetime-field-sketch.css': 'sass/px-datetime-field-sketch.scss',
-                    'css/noprefix/px-datetime-field.css': 'sass/px-datetime-field-predix.scss'
+                    'css/noprefix/px-datetime-field.css': 'sass/px-datetime-field-predix.scss',
+                    'css/noprefix/px-datetime-field-demo.css': 'sass/px-datetime-field-demo.scss'
                 }
             }
         },
