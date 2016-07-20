@@ -1,3 +1,7 @@
+v0.4.1
+==================
+* Updated to mega demo
+
 v0.4.0
 ==================
 * Added blockPastDates
