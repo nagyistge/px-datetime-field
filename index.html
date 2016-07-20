@@ -21,7 +21,6 @@
   </head>
 
 <body>
-
   <!-- Wrap elements with auto-binding template to -->
   <!-- allow use of Polymer bindings in main document -->
   <template id="just-for-demo" is="dom-bind" >
@@ -32,22 +31,20 @@
   		<p >
   			The	<code>px-datetime-field</code> component includes various elements used for structuring responsive layouts.
   		</p>
-      <p >This component allows the user to select a date and time range precisely to the second or millisecond.
-        The main use case for the Range Picker so far is for plotting of time series data, where the user needs
-        to be able to select exactly what timeframe they would like to see.
+      <p >This component allows the user to select a date and time precisely to the second or millisecond.
       </p>
-      <p >This counter represents when the px-datetime-field event/range property of the
-      range field are being fired/updated. The behavior depends on whether the range field uses
+      <p >The counter represents when the px-datetime-field event/dateTime property of the
+      field are being fired/updated. The behavior depends on whether the field uses
       buttons. It is defined as followed:
       <br>
       - If it has buttons then it is fired when the user clicks the apply button AND the date/time is valid<br>
       - If it doesn't have button then it is fired every time a change is made to the date/time AND the date/time is valid
       </p>
   		<div class="flex">
-  			<img class="u-mr--" src="https://img.shields.io/travis/PredixDev/px-datetime-field.svg?style=flat-square" alt="Travis"/>
-  			<img class="u-mr--" src="https://img.shields.io/bower/v/px-datetime-field.svg?style=flat-square" alt="Bower"/>
-  			<img class="u-mr--" src="https://img.shields.io/github/issues-raw/PredixDev/px-datetime-field.svg?style=flat-square" alt="Issues"/>
-  			<img class="u-mr--" src="https://img.shields.io/github/watchers/PredixDev/px-datetime-field.svg?style=social&label=Watch"/>
+  			<img class="u-mr--" src="https://img.shields.io/travis/PredixDev/px-datetime-field.svg?style=flat-square" alt="Travis" onerror="this.style.display='none'"/>
+  			<img class="u-mr--" src="https://img.shields.io/bower/v/px-datetime-field.svg?style=flat-square" alt="Bower" onerror="this.style.display='none'"/>
+  			<img class="u-mr--" src="https://img.shields.io/github/issues-raw/PredixDev/px-datetime-field.svg?style=flat-square" alt="Issues" onerror="this.style.display='none'"/>
+  			<img class="u-mr--" src="https://img.shields.io/github/watchers/PredixDev/px-datetime-field.svg?style=social&label=Watch" onerror="this.style.display='none'"/>
   		</div>
   	</div>
     <br />
@@ -165,6 +162,7 @@
     </px-tab-pages>
   </div>
 </template>
+
 <script>
 window.addEventListener('WebComponentsReady', function() {
   var template = document.querySelector('template[is=dom-bind]'),
@@ -179,8 +177,8 @@ window.addEventListener('WebComponentsReady', function() {
       "dateTime":dateTime,
       "dateFormat":dateFormat[0],
       "timeFormat":timeFormat[0],
-      "showButtons":false,
-      "blockFutureDates":false,
+      "showButtons":true,
+      "blockFutureDates":true,
       "blockPastDates":false,
       "hideTime":false,
       "hideDate":false,
