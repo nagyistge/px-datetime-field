@@ -33,6 +33,7 @@
     "px-demo-snippet": "https://github.com/predixdev/px-demo-snippet.git",
     "px-headings-design": "^0.2.14",
     "px-actionable-text-icons-design": "^0.0.3",
-    "px-toggle-design": "^0.2.12"
+    "px-toggle-design": "^0.2.12",
+    "px-list-inline-design": "^0.2.11"
   }
 }
