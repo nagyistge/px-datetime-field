@@ -1,6 +1,6 @@
 {
   "name": "px-datetime-field",
-  "version": "0.4.1",
+  "version": "0.4.2",
   "main": [
     "px-datetime-field.html"
   ],
@@ -35,8 +35,5 @@
     "px-actionable-text-icons-design": "^0.0.3",
     "px-toggle-design": "^0.2.12",
     "px-list-inline-design": "^0.2.11"
-  },
-  "resolutions": {
-    "px-viewport-design": "~0.4.1"
   }
 }
