@@ -70,8 +70,7 @@ var validate = {
         notAllowedInPast = this.blockPastDates && inputMoment.isBefore(Px.moment.tz(Px.moment(), this.timezone), 'day');
 
     // if the component datetime string is a valid datetime
-    if((inputMoment.isValid() && !notAllowedInFuture) ||
-        (inputMoment.isValid() && !notAllowedInPast)) {
+    if((inputMoment.isValid() && !notAllowedInFuture && !notAllowedInPast)) {
       // turn off input box error outline
       this.toggleClass('validation-error', false, this.$.wrapper);
       /*

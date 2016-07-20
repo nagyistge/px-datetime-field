@@ -1,6 +1,6 @@
 {
   "name": "px-dropdown",
-  "version": "0.10.0",
+  "version": "0.10.1",
   "main": [
     "px-dropdown.html"
   ],
@@ -30,11 +30,11 @@
     "px-starter-kit-design": "https://github.com/predixDev/px-starter-kit-design.git#~0.4.9"
   },
   "homepage": "https://github.com/predixDev/px-dropdown",
-  "_release": "0.10.0",
+  "_release": "0.10.1",
   "_resolution": {
     "type": "version",
-    "tag": "v0.10.0",
-    "commit": "3e7594ae264512978bdd58276a75d54fd5bd3770"
+    "tag": "v0.10.1",
+    "commit": "79977878a1426e7fb949e0db7a571ed6608420d0"
   },
   "_source": "https://github.com/predixDev/px-dropdown.git",
   "_target": "~0.10.0",

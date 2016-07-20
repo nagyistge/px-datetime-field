@@ -1,3 +1,7 @@
+v0.5.1
+==================
+* Fixed blockFutureDates blockPastDates validation bug
+
 v0.5.0
 ==================
 * Added block past dates
