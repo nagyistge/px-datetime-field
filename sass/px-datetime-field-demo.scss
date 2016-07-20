@@ -105,6 +105,10 @@ $inuit-enable-list-inline--delimited : true;
   margin:0 auto;
   max-width:calculateRem(1200px);
 }
+.apiContainer {
+  margin: 0 auto;
+  background-color: $white;
+}
 .tabContainer {
   flex:0 0 100%;
   height:calculateRem(60px);

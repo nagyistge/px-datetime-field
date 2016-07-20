@@ -1162,6 +1162,10 @@ textarea {
   margin: 0 auto;
   max-width: 80rem; }
 
+.apiContainer {
+  margin: 0 auto;
+  background-color: white; }
+
 .tabContainer {
   -webkit-flex: 0 0 100%;
       -ms-flex: 0 0 100%;
