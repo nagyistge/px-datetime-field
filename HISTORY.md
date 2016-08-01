@@ -1,3 +1,7 @@
+v0.4.8
+==================
+* Component screenshot, font reference and github links for demo update
+
 v0.4.7
 ==================
 * Added github link
