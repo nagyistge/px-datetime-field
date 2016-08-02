@@ -1,3 +1,7 @@
+v0.1.0
+=================
+* added light dom content support
+
 v0.0.11
 =================
 * changed polymer to 1.5.0
