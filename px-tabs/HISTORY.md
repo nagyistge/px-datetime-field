@@ -1,4 +1,12 @@
-v0.4.5
+v0.4.8
+=================
+* removed properties, edited styles
+
+v0.4.7
+=================
+* added mega demo
+
+v0.4.6
 =================
 * added image to readme.
 
