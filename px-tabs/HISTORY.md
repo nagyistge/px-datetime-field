@@ -1,3 +1,15 @@
+v0.4.11
+=================
+* fixed racing condition that cancelled the selected tab.
+
+v0.4.10
+=================
+* added overflow to demo class and removed <br>
+
+v0.4.9
+=================
+* updated mega demo styles and bower px-demo-snippet to ^
+
 v0.4.8
 =================
 * removed properties, edited styles
