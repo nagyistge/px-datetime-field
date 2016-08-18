@@ -1,3 +1,19 @@
+v0.1.6
+=================
+* added css break-all words to editor
+
+v0.1.5
+=================
+* changed the call to prism-highlighter so that it is async, and is run after everything's been loaded.
+
+v0.1.4
+=================
+* created temp hack until we figure out the event listener for prism"
+
+v0.1.3
+=================
+* removed ace-widget and replaced with prism-element
+
 v0.1.2
 =================
 * changing px-clipboard in bower

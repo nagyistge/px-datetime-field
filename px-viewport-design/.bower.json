@@ -1,6 +1,6 @@
 {
   "name": "px-viewport-design",
-  "version": "0.4.6",
+  "version": "0.2.7",
   "authors": [
     "General Electric"
   ],
@@ -13,25 +13,24 @@
   ],
   "license": "Apache 2",
   "homepage": "https://github.com/PredixDev/px-viewport-design.git",
-  "private": false,
+  "private": true,
   "ignore": [
     "**/.*",
     "node_modules",
     "bower_components",
     "test",
-    "tests",
-    "OSS_Notice.pdf"
+    "tests"
   ],
   "dependencies": {
     "inuit-responsive-tools": "~0.1.3"
   },
-  "_release": "0.4.6",
+  "_release": "0.2.7",
   "_resolution": {
     "type": "version",
-    "tag": "v0.4.6",
-    "commit": "ec72c397e5fe03fff4b954f85f46958ef0845554"
+    "tag": "v0.2.7",
+    "commit": "e498d09c177c0012f25bbfd23424e5ac79c10a93"
   },
   "_source": "https://github.com/PredixDev/px-viewport-design.git",
-  "_target": "~0.4.1",
+  "_target": "~0.2.0",
   "_originalSource": "https://github.com/PredixDev/px-viewport-design.git"
 }

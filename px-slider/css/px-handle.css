@@ -1,4 +1,3 @@
-@charset "UTF-8";
 /*
  * Copyright (c) 2014 GE Global Research. All rights reserved.
  *
@@ -30,6 +29,9 @@ Predix branding rules go in px-slider-predix.scss, not in this file.
  * Monochromatic (gray10 is darkest, gray1 is lightest)
  */
 /**
+ * Define grey = gray to avoid dev typos
+ */
+/**
  * Buttons
  */
 /**
@@ -50,184 +52,16 @@ Predix branding rules go in px-slider-predix.scss, not in this file.
 /**
      * Dark
      */
-/*! normalize.css v3.0.2 | MIT License | git.io/normalize */
-/**
- *
- * 1. Set the default `font-size` and `line-height` for the entire project,
- *    sourced from our default variables. The `font-size` is calculated to exist
- *    in ems, the `line-height` is calculated to exist unitlessly.
- * 2. Force scrollbars to always be visible to prevent awkward ‘jumps’ when
- *    navigating between pages that do/do not have enough content to produce
- *    scrollbars naturally.
- * 3. Ensure the page always fills at least the entire height of the viewport.
- * 4. Prevent certain mobile browsers from automatically zooming fonts.
- * 5. Fonts on OSX will look more consistent with other systems that do not
- *    render text using sub-pixel anti-aliasing.
- */
-html {
-  font-size: 0.9375em;
-  /* [1] */
-  line-height: 1.3333333333;
-  /* [1] */
-  background-color: white;
-  color: black;
-  overflow-y: scroll;
-  /* [2] */
-  min-height: 100%;
-  /* [3] */
-  -webkit-text-size-adjust: 100%;
-      -ms-text-size-adjust: 100%;
-          text-size-adjust: 100%;
-  /* [4] */
-  -moz-osx-font-smoothing: grayscale;
-  /* [5] */
-  -webkit-font-smoothing: antialiased;
-  /* [5] */ }
-
-/**
- * Remove default margin.
- */
-body {
-  margin: 0; }
-
-/* HTML5 display definitions
-   ========================================================================== */
-/**
- * Correct `block` display not defined for any HTML5 element in IE 8/9.
- * Correct `block` display not defined for `details` or `summary` in IE 10/11
- * and Firefox.
- * Correct `block` display not defined for `main` in IE 11.
- */
-article,
-aside,
-details,
-figcaption,
-figure,
-footer,
-header,
-hgroup,
-main,
-menu,
-nav,
-section,
-summary {
-  display: block; }
-
-/**
- * 1. Correct `inline-block` display not defined in IE 8/9.
- * 2. Normalize vertical alignment of `progress` in Chrome, Firefox, and Opera.
- */
-audio,
-canvas,
-progress,
-video {
-  display: inline-block;
-  /* 1 */
-  vertical-align: baseline;
-  /* 2 */ }
-
-/**
- * Prevent modern browsers from displaying `audio` without controls.
- * Remove excess height in iOS 5 devices.
- */
-audio:not([controls]) {
-  display: none;
-  height: 0; }
-
-/**
- * Address `[hidden]` styling not present in IE 8/9/10.
- * Hide the `template` element in IE 8/9/11, Safari, and Firefox < 22.
- */
-[hidden],
-template {
-  display: none; }
-
-/* Margins
-   ========================================================================== */
-/**
- * Where `margin-bottom` is concerned,this value will be the same as the
- * base line-height. This allows us to keep a consistent vertical rhythm.
- * As per: csswizardry.com/2012/06/single-direction-margin-declarations
- */
-h1, h2, h3, h4, h5, h6,
-ul, ol, dl,
-blockquote, p, address,
-hr,
-table,
-fieldset, figure,
-pre {
-  margin-bottom: 1rem; }
-
-/**
- * Remove extra vertical spacing when nesting lists.
- */
-li > ul,
-li > ol {
-  margin-bottom: 0; }
-
-/**
- * Where `margin-left` is concerned we want to try and indent certain elements
- * by a consistent amount. Define that amount once,here.
- */
-ul, ol, dd {
-  margin-left: 2rem; }
-
-/* Embedded content
-   ========================================================================== */
-/**
- * Remove border when inside `a` element in IE 8/9/10. Make images shrink from their largest size.
- */
-img {
-  max-width: 100%;
-  border: 0; }
-
-/**
- * Correct overflow not hidden in IE 9/10/11.
- */
-svg:not(:root) {
-  overflow: hidden; }
-
-/* Grouping content
-   ========================================================================== */
-/**
- * Zero margins for figure.
- */
-figure {
-  margin: 0; }
-
-/**
- * Address differences between Firefox and other browsers.
- */
-hr {
-  box-sizing: content-box;
-  height: 0; }
-
-/**
- * Contain overflow in all browsers.
- */
-pre {
-  overflow: auto; }
-
-/**
- * Set the global `box-sizing` state to `border-box`.
- *
- * css-tricks.com/inheriting-box-sizing-probably-slightly-better-best-practice
- * paulirish.com/2012/box-sizing-border-box-ftw
- */
-html {
-  box-sizing: border-box; }
-
-:host {
-  /*! Comment to prevent cssmin munging this rule with html above and borking Safari */
-  box-sizing: border-box; }
-
-*, *:before, *:after {
-  box-sizing: inherit; }
-
 :host {
   position: absolute;
   top: -0.4rem;
   display: inline-block; }
+  :host.start {
+    top: 0.5333333333rem;
+    margin-left: -0.64rem; }
+  :host.end {
+    top: -1.3333333333rem;
+    margin-left: -0.64rem; }
 
 #handleTarget {
   height: 1.3333333333rem;
@@ -238,6 +72,20 @@ html {
   background-color: white;
   fill: #b1b1bc;
   cursor: pointer; }
+  #handleTarget .handleLines {
+    stroke: #b1b1bc;
+    fill: none;
+    stroke-miterlimit: 10; }
+  #handleTarget #handleDropShadow {
+    opacity: 0.15;
+    mix-blend-mode: multiply;
+    stroke: black;
+    fill: black;
+    stroke-miterlimit: 10; }
+  #handleTarget #handleBody {
+    fill: white;
+    stroke: #b1b1bc;
+    stroke-miterlimit: 10; }
   #handleTarget:focus {
     outline: 0; }
   #handleTarget:hover {
@@ -245,11 +93,21 @@ html {
     background-color: #b1b1bc; }
     #handleTarget:hover svg {
       stroke: #9999a3; }
+    #handleTarget:hover .handleLines {
+      stroke: #9999a3; }
+    #handleTarget:hover #handleBody {
+      fill: #b1b1bc;
+      stroke: #9999a3; }
   #handleTarget.tracking {
     border-color: #7c7c84;
     background-color: #9999a3;
     box-shadow: none; }
     #handleTarget.tracking svg {
+      stroke: #7c7c84; }
+    #handleTarget.tracking .handleLines {
+      stroke: #7c7c84; }
+    #handleTarget.tracking #handleBody {
+      fill: #9999a3;
       stroke: #7c7c84; }
   #handleTarget.disabled {
     border-color: #d1d0d8;
@@ -257,3 +115,19 @@ html {
     box-shadow: none; }
     #handleTarget.disabled svg {
       stroke: #d1d0d8; }
+    #handleTarget.disabled .handleLines {
+      stroke: #d1d0d8; }
+    #handleTarget.disabled #handleBody {
+      fill: white;
+      stroke: #d1d0d8; }
+
+#multiHandleSVG {
+  height: 1.4666666667rem;
+  width: 1.3333333333rem;
+  -moz-user-select: none; }
+  #multiHandleSVG.start {
+    -webkit-transform: rotate(180deg);
+            transform: rotate(180deg); }
+    #multiHandleSVG.start #handleTarget {
+      -webkit-transform: translate(0.04rem, 0.1733333333rem);
+              transform: translate(0.04rem, 0.1733333333rem); }

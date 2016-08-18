@@ -1,3 +1,11 @@
+v0.5.7
+=================
+* updated mega demo styles and bower px-demo-snippet to ^
+
+v0.5.6
+=================
+* updated demos-snippets
+
 v0.5.5
 =================
 * removed broken example

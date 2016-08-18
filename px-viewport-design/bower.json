@@ -1,6 +1,6 @@
 {
   "name": "px-viewport-design",
-  "version": "0.4.6",
+  "version": "0.2.7",
   "authors": [
     "General Electric"
   ],
@@ -13,14 +13,13 @@
   ],
   "license": "Apache 2",
   "homepage": "https://github.com/PredixDev/px-viewport-design.git",
-  "private": false,
+  "private": true,
   "ignore": [
     "**/.*",
     "node_modules",
     "bower_components",
     "test",
-    "tests",
-    "OSS_Notice.pdf"
+    "tests"
   ],
   "dependencies": {
     "inuit-responsive-tools": "~0.1.3"
