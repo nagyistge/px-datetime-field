@@ -228,7 +228,7 @@ function runCustomTests() {
 
     test('datetime kept in sync when changing moment', function() {
 
-      field.momentObj = moment.tz(moment("2013-04-07T00:00:00.000Z"), field.timeZone);
+      field.momentObj = Px.moment.tz(moment("2013-04-07T00:00:00.000Z"), field.timeZone);
       assert.equal(field.momentObj.toISOString(), field.dateTime);
     });
 
