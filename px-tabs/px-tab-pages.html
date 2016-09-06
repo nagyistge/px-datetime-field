@@ -24,29 +24,31 @@ They are typically used together like this:
     <px-tab>Tab 3</px-tab>
   </px-tab-set>
   <px-tab-pages selected="{{selected}}>
-    <section>Tab 1 content</section>
-    <section>Tab 2 content</section>
-    <section>Tab 3 content</section>
+    <div>Tab 1 content</div>
+    <div>Tab 2 content</div>
+    <div>Tab 3 content</div>
   </px-tab-pages>
 ```
 
 @element px-tab-pages
 @blurb Element provides a single tab.
 @homepage index.html
-@demo demo.html
+@demo index.html
 -->
+<link rel="import" href="css/px-tab-pages-styles.html">
 <dom-module id="px-tab-pages">
-  <link rel="import" type="css" href="css/px-tab-pages.css"/>
-  <style>
+  <template>
+    <style>
     :host {
       display: block;
     }
     :host > ::content > :not(.iron-selected) {
       display: none !important;
     }
-  </style>
-  <template>
-      <content></content>
+    </style>
+    <style include="px-tab-pages-styles"></style>
+    <style include="px-theme-styles"></style>
+    <content></content>
   </template>
 </dom-module>
 

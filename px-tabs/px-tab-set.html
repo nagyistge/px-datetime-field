@@ -28,20 +28,23 @@ Note: There is no limit on number of tabs in the set, but there is no scrolling 
         <px-tab>Tab 3</px-tab>
     </px-tab-set>
     <px-tab-pages selected="{{selected}}">
-        <section>Tab 1 content</section>
-        <section>Tab 2 content</section>
-        <section>Tab 3 content</section>
+        <div>Tab 1 content</div>
+        <div>Tab 2 content</div>
+        <div>Tab 3 content</div>
     </px-tab-pages>
 ```
 @element px-tab-set
 @blurb Container for px-tab elements
 @homepage index.html
-@demo demo.html
+@demo index.html
 -->
 
+<link rel="import" href="css/px-tab-set-styles.html">
+
 <dom-module id="px-tab-set">
-    <link rel="import" type="css" href="css/px-tab-set.css"/>
     <template>
+      <style include="px-tab-set-styles"></style>
+      <style include="px-theme-styles"></style>
       <div class="tabs-container">
         <div class$="{{_setTabSetClass(bare, noBottomBorder)}} flex">
           <content id="tabdefs" select="*"></content>

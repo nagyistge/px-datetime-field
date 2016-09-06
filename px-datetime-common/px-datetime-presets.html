@@ -9,9 +9,13 @@ The list of preset ranges in the rangepicker modal.
     <px-datetime-presets preset-ranges="{{...}}">
     </px-datetime-presets>
 -->
+
+<link rel="import" href="css/px-datetime-presets-styles.html">
+
 <dom-module id="px-datetime-presets">
-  <link rel="import" type="css" href="css/px-datetime-presets.css"/>
   <template>
+    <style include="px-datetime-presets-styles"></style>
+    <style include="px-theme-styles"></style>
     <h4 class="caps u-mt0 u-mb-">Presets</h4>
     <ul class=list-bare>
       <template is="dom-repeat" items="{{presetRanges}}" as="preset">
