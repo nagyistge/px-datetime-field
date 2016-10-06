@@ -48,6 +48,5 @@
   },
   "_source": "https://github.com/PredixDev/px-datetime-field.git",
   "_target": "^0.5.0",
-  "_originalSource": "px-datetime-field",
-  "_direct": true
+  "_originalSource": "px-datetime-field"
 }

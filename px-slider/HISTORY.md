@@ -1,3 +1,18 @@
+v0.6.2
+=================
+* added support for negative values
+
+v0.6.1
+=================
+* made it so disabled actually does something
+* added unit tests
+* fixed issues in demo (description, resize)
+* cleaned up and simplified code (comments, reflect, public to private API, event complexity)
+
+v0.6.0
+=================
+* uprev
+
 v0.5.9
 =================
 * added codepen
