@@ -1,6 +1,6 @@
 {
   "name": "px-button-group-design",
-  "version": "0.3.14",
+  "version": "0.3.16",
   "authors": [
     "General Electric"
   ],
@@ -24,14 +24,14 @@
     "px-helpers-design": "~0.3.0"
   },
   "devDependencies": {
-    "px-sass-doc": "~0.1.7",
+    "px-sass-doc": "~0.2.0",
     "px-starter-kit-design": "~0.6.0"
   },
-  "_release": "0.3.14",
+  "_release": "0.3.16",
   "_resolution": {
     "type": "version",
-    "tag": "v0.3.14",
-    "commit": "74471160be570c2ee5bbe6ad3ed09c2986c5accb"
+    "tag": "0.3.16",
+    "commit": "a037bcb94149b0aeccc295ffb84f821b264c6401"
   },
   "_source": "https://github.com/predixDev/px-button-group-design.git",
   "_target": "~0.3.8",

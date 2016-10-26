@@ -1,3 +1,16 @@
+v0.2.17
+==============================
+* updated to px-sass-doc#0.2.8
+
+v0.2.16
+==============================
+* Updated dependencies
+* Updated boilerplate files
+
+v0.2.15
+==============================
+* fixed grammar mistake
+
 v0.2.14
 ==============================
 * Added new Travis deploy key
