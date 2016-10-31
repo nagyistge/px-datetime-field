@@ -203,7 +203,7 @@ function runCustomTests() {
           dateCells = Polymer.dom(entries[0].root).querySelectorAll('px-datetime-entry-cell'),
           wrapper = Polymer.dom(field.root).querySelector('#fieldWrapper'),
           i = 0;
-
+debugger
       var listener = function(evt) {
         i++;
         //make sure string has been kept in sync
@@ -214,7 +214,7 @@ function runCustomTests() {
 
       //valid month, should trigger event
       fireKeyboardEvent(dateCells[1], '0');
-      fireKeyboardEvent(dateCells[1], '2');
+      fireKeyboardEvent(dateCells[1], '3');
 
       setTimeout(function() {
         assert.equal(i, 1);
