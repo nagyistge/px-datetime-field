@@ -1,3 +1,19 @@
+v0.3.20
+==================
+* added style variables for theming
+
+v0.3.19
+==================
+* bumping sassdoc to propogate clipboard changes
+
+v0.3.18
+==================
+* bumping all version of px-sass-doc to get px-clipboard update
+
+v0.3.17
+==================
+* patch test
+
 v0.3.16
 ==========================
 * updated to px-sass-doc#0.2.8

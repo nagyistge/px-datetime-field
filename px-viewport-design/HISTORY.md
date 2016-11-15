@@ -1,3 +1,18 @@
+
+v0.4.11
+==================
+* bumping sassdoc to propogate clipboard changes
+
+
+v0.4.10
+==================
+* bumping all version of px-sass-doc to get px-clipboard update
+
+
+v0.4.9
+==================
+* patch test
+
 v0.4.8
 ==============================
 * added more detail to 'Use it in your project'

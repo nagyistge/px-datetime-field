@@ -1,6 +1,19 @@
-v0.9.4
+
+v0.9.8
+==================
+* bower updating px-demo-snippet
+
+v0.9.7
 =================
-* Update dependencies
+* rebuild css
+
+v0.9.6
+=================
+* updated dependencies
+
+v0.9.5
+=================
+* added style variables for theming
 
 v0.9.3
 =================
