@@ -25,8 +25,8 @@ common/abstract rules go in px-datetime-input-sketch.scss, not in this file.
 @import 'px-datetime-field-sketch.scss';
 
 .validation-failed {
-  border: solid 1px $alert-red;
+  border: solid 1px var(--px-datetime-border-color-validation--failed, $alert-red);
   &:active{
-    border: solid 1px $alert-red;
+    border: solid 1px var(--px-datetime-border-color-validation--failed, $alert-red);
   }
 }
